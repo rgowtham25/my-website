@@ -57,7 +57,7 @@ Welcome to my personal portfolio website! This is a modern, responsive website b
 
 ## 🌐 Live Demo
 
-Visit the live website: [Gowtham R Portfolio](https://rgowtham25.github.io/my-website)
+Visit the live website: [Gowtham R Portfolio](https://rgowtham.netlify.app/)
 
 ## 📄 License
 
@@ -67,4 +67,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Feel free to reach out if you have any questions or would like to connect!
 
+- LinkedIn: [@gowthamr25](https://www.linkedin.com/in/gowthamr25/)
 - GitHub: [@rgowtham25](https://github.com/rgowtham25)

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="gowtham, portfolio, r,Machine Learning , personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome to Gowtham's Portfolio. Tech Enthusiast"/>
+    <meta name="keywords" content="gowtham, portfolio, r, Machine Learning, personal portfolio, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Gowtham's Portfolio. AI/ML Engineer & Python Developer"/>
     <link rel="stylesheet" href="./assets/css/style.css">     <!-- Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link id='favicon' rel="shortcut icon" href="./assets/images/test.PNG" type="image/x-png">
-    <title>Gowtham R Portfolio</title>
+    <title>Gowtham R | AI/ML Engineer & Python Developer</title>
 </head>
 
 <!-- Google tag (gtag.js) Starts -->
@@ -25,286 +25,625 @@
 <body oncontextmenu="return false">
 <!-- Google tag (gtag.js) Ends -->
 
+<!-- preloader -->
+<div class="loader-container">
+    <div class="loader"></div>
+</div>
+
 <!-- navbar starts -->
 <header>
-  <a href="/" class="logo"><i class="fas fa-cog fa-pulse"></i> RG </a>
-        <div id="menu" class="fas fa-bars"></div>
+    <div class="container">
+        <a href="/" class="logo">
+            <i class="fas fa-cog fa-spin"></i> <span>RG</span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
         <nav class="navbar">
             <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+    </div>
 </header>
 
-<br><br>
 <!-- hero section starts -->
 <section class="home" id="home">
     <div id="particles-js"></div>
-    <div class="content">
-    <h2>Hi There,<br/> I'm<span> Gowtham Ravichandran</span></h2>
-    <p>i am into <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="gmail" aria-label="Gmail" href="mailto:rgowtham2502@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/gowthamr25/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href= "https://github.com/rgowtham25" target="_blank"><i class="fab fa-github"></i></a></li>
-          <!-- <li><a class="linktree" aria-label="Linktree" href="https://linktr.ee/rgowtham25" target="_blank"><iconify-icon icon="simple-icons:linktree"></iconify-icon></a></li> -->
-        </ul>
-      </div>
+    <div class="container">
+        <div class="content">
+            <h2>Hi There,<br/> I'm <span>Gowtham Ravichandran</span></h2>
+            <h3 class="typing-text">AI/ML Engineer & Python Developer</h3>
+            <p>Building innovative AI solutions and automation pipelines</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn primary-btn">
+                    <span>About Me</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="https://drive.google.com/file/d/10vvgapwglb3IZlw1-77hwqQuWh4kPaeu/view?usp=sharing" target="_blank" class="btn secondary-btn">
+                    <span>Resume</span>
+                    <i class="fas fa-file-download"></i>
+                </a>
+            </div>
+            <div class="socials">
+                <a href="mailto:rgowtham2502@gmail.com" class="social-icon" aria-label="Gmail" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/gowthamr25/" class="social-icon" aria-label="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/rgowtham25" class="social-icon" aria-label="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div class="image">
+            <img draggable="false" class="tilt" src="./assets/images/gowtham.png" alt="Gowtham R">
+        </div>
     </div>
-<div class="image">
-    <img draggable="false" class="tilt" src="./assets/images/gowtham.png" alt="GOWTAHM R">
-</div>
 </section>
 <!-- hero section ends -->
 
 <!-- about section starts -->
 <section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    <div class="row">
-    <div class="image">
-        <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
-    </div>
-    <div class="content"><br><br><br>
-        <h3>I'm <span> Gowtham R</span></h3>
-        <span class="tag">Python Developer - AI/ML</span>
-        <p><br>
-          <!-- · I've completed my bachelor's degree in B.Sc. Information Systems from Kongu Engineering College, Perundurai, with a CGPA of 8.93 (Sep 2020 - May 2023).  -->
-          ·  Currently, I work as a Python Developer at Valuestream Business Solutions Pvt Ltd, Bangalore, where I focus on automation, data visualization, and enhancing process efficiency using a tech stack that includes Python (Pandas), Dash, Power BI, and Docker. <br>
-          <!-- ·  Previously, I gained experience as an Data Analyst / RPA Developer, working on projects that involved UiPath, Machine Learning, and Data Analytics. Additionally, I have contributed as a freelancer, collaborating with Vatshayan Technologies on various development initiatives.<br> -->
-          · I also have experience as a Data Analyst & RPA Developer and have worked on projects involving UiPath, Machine Learning, and Data Analytics(DC, DP, DV).<br>
-          · My freelance work includes collaborating with Vatshayan Technologies on various development tasks.<br>
-          · I hold a B.Sc. in Information Systems from Kongu Engineering College, Perundurai, graduating with a CGPA of 8.93 (Sep 2020 - May 2023).
-          <!-- I've completed my bachelor's degree in B.Sc,. Information Systems in Kongu Engineering College at Perundurai with a CGPA of 8.93 from Sep 2020 - May 2023. With my strong foundation in UiPath, Python, Machine Learning and visualization tools. I have completed several projects in the fields of UiPath, Machine Learning and Power BI. Additionally, I'm working as a Freelancer Developer for Vatshayan Technologies. </p> -->
-        <div class="box-container">
-            <div class="box">
-              <p><span> E-mail : </span> rgowtham2502@gmail.com</p>
-              <p><span> Place : </span>Erode, Tamilnadu, India - 638001</p>
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="Gowtham R">
+            </div>
+            <div class="about-text">
+                <h3>I'm <span>Gowtham R</span></h3>
+                <div class="tag">AI/ML Engineer | Python Developer</div>
+                <p>
+                    I'm an AI/ML Engineer and Python Developer with over 2+ years of experience building innovative AI solutions and automation pipelines. At Valuestream Business Solutions in Bangalore, I develop real-time speech analytics systems, LLM-based chatbots, and data visualization dashboards using Python (Pandas, Plotly), Power BI, and Docker.
+                </p>
+                <p>
+                    My expertise spans fine-tuning open-source LLMs (LLaMA, Mistral, Gemma), building RAG pipelines with LangChain, and automating workflows for clients like Flipkart and Exide Life Insurance.
+                </p>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>rgowtham2502@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="resumebtn">
-            <a href="https://drive.google.com/file/d/10vvgapwglb3IZlw1-77hwqQuWh4kPaeu/view?usp=sharing" target="_blank" class="btn"><span>Resume</span>
-                <i class="fas fa-file"></i>
-            </a>
-        </div>
-    </div>
     </div>
 </section>
 <!-- about section ends -->
 
 <!-- education section starts -->
 <section class="education" id="education">
-  <h1 class="heading"><i class="fas fa-graduation-cap"></i><span>Education</span></h1>
-  <div class="box-container">
-
-    <div class="box"><div class="image"><img src="./assets/images/educat/udacity.png" alt=""></div><div class="content">
-      <h3>AI Programming with Python</h3><p>Nanodegree Program</p>
-      <h4>2023-2024</h4><p></p></div></div>
-
-    <div class="box"><div class="image"><img src="./assets/images/educat/college.jpg" alt=""></div><div class="content">
-    <h3>B.Sc | Information Systems</h3><p>Kongu Engineering College, Erode, Tamilnadu</p>
-    <h4>2020-2023</h4><p>Grade: 8.93 CGPA</p></div></div>
-
-    <div class="box"><div class="image"><img src="./assets/images/educat/school2.jpg" alt=""></div><div class="content">
-    <h3>HSC</h3><p>S.V.N Matriculation Higher Secondary School, Chithode, Erode</p>
-    <h4>2019-2020</h4><p>Percentage: 71.3%</p></div></div>
-    
-    <div class="box"><div class="image"><img src="./assets/images/educat/school1.png" alt=""></div><div class="content">
-    <h3>SSLC</h3><p>S.D.A Matriculation School, Pattakarar Thottam, Erode </p>
-    <h4>2017-2018</h4><p>Percentage: 69.4%</p></div></div>
-
-  </div>
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span>Education</span></h2>
+        <div class="education-cards">
+            <div class="edu-card">
+                <div class="edu-image">
+                    <img src="./assets/images/educat/udacity.png" alt="Udacity">
+                </div>
+                <div class="edu-content">
+                    <h3>AI Programming with Python</h3>
+                    <p class="institution">Nanodegree Program</p>
+                    <p class="year">2023-2024</p>
+                </div>
+            </div>
+            
+            <div class="edu-card">
+                <div class="edu-image">
+                    <img src="./assets/images/educat/college.jpg" alt="Kongu Engineering College">
+                </div>
+                <div class="edu-content">
+                    <h3>B.Sc | Information Systems</h3>
+                    <p class="institution">Kongu Engineering College, Erode</p>
+                    <p class="year">2020-2023 | Grade: 8.93 CGPA</p>
+                </div>
+            </div>
+            
+            <div class="edu-card">
+                <div class="edu-image">
+                    <img src="./assets/images/educat/school2.jpg" alt="SVN School">
+                </div>
+                <div class="edu-content">
+                    <h3>HSC</h3>
+                    <p class="institution">S.V.N Matriculation Higher Secondary School</p>
+                    <p class="year">2019-2020 | Percentage: 71.3%</p>
+                </div>
+            </div>
+            
+            <div class="edu-card">
+                <div class="edu-image">
+                    <img src="./assets/images/educat/school1.png" alt="SDA School">
+                </div>
+                <div class="edu-content">
+                    <h3>SSLC</h3>
+                    <p class="institution">S.D.A Matriculation School</p>
+                    <p class="year">2017-2018 | Percentage: 69.4%</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- education section ends -->
 
 <!-- PROJECT SECTION STARTS -->
-<section class="work", id="projects">
-  <div class="container">
-    <div class="heading">
-      <h2><span>Projects</span></h2>
+<section class="projects" id="projects">
+    <div class="container">
+        <h2 class="section-title"><span>Projects</span></h2>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="bi">Business Intelligence</button>
+            <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+        </div>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="ml">
+                <div class="project-image">
+                    <img src="./assets/images/projects/ClothingBot.jpg" alt="Clothing Consultant Bot">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/Clothing-Consultant-Bot" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Clothing Consultant Bot</h3>
+                    <p>AI-powered bot for clothing recommendations</p>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" data-category="bi">
+                <div class="project-image">
+                    <img src="./assets/images/projects/nammayatri.jpg" alt="Namma Yatri Analytics">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/Namma-Yatri-Analytics-Dashboard-using-Power-BIsss" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Namma Yatri Analytics Dashboard</h3>
+                    <p>Power BI dashboard for transportation analytics</p>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" data-category="bi">
+                <div class="project-image">
+                    <img src="./assets/images/projects/space.png" alt="Space Missions Analysis">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/Space-Missions-Analysis" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Space Mission Analysis</h3>
+                    <p>Analysis of space missions using Power BI</p>
+                </div>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" data-category="ml">
+                <div class="project-image">
+                    <img src="./assets/images/projects/insta.png" alt="Instagram Reach Analysis">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/Instagram-Reach-Analysis" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Instagram Reach Analysis</h3>
+                    <p>Social media analytics using Python</p>
+                </div>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" data-category="blockchain">
+                <div class="project-image">
+                    <img src="./assets/images/projects/blockchain.png" alt="Anti-Counterfeit System">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/Design-and-Implementation-of-Anti-Counterfeit-System-using-Blockchain" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Anti-Counterfeit System</h3>
+                    <p>Blockchain-based product verification system</p>
+                </div>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card" data-category="ml">
+                <div class="project-image">
+                    <img src="./assets/images/projects/pictorial_view.jpg" alt="Hybrid Cryptographic Algorithm">
+                    <div class="project-overlay">
+                        <a href="https://github.com/rgowtham25/hybrid-algorithm-cryptography-concept-project" class="project-link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Hybrid Cryptographic Algorithm</h3>
+                    <p>Advanced cryptographic techniques for secure communication</p>
+                </div>
+            </div>
+        </div>
+        <div class="view-all">
+            <a href="https://github.com/rgowtham25" class="btn primary-btn" target="_blank">
+                <span>View All Projects</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </div>
-    <div class="box-container">
-
-      <!--Project-8-->
-      <div class="box"><a href="https://github.com/rgowtham25/hybrid-algorithm-cryptography-concept-project">
-      <img src=".\assets\images\projects\pictorial_view.jpg" alt="HybridAlogrithm"></a><div class="content"><div class="tag">
-      <h3>Design and Analysis of Cryptographic Technique for Communication System</h3></div></div></div>
-
-      <!--Project-5-->
-      <div class="box"><a href="https://github.com/rgowtham25/Namma-Yatri-Analytics-Dashboard-using-Power-BIsss">
-      <img src=".\assets\images\projects\nammayatri.jpg"alt="nammayatri"></a><div class="content"><div class="tag">
-      <h3>Namma Yatri Analytics Dashboard</h3></div></div></div>
-
-      <!--Project-6-->
-      <div class="box"><a href="https://github.com/rgowtham25/Space-Missions-Analysis">
-      <img src=".\assets\images\projects\space.png"alt="Power BI"></a><div class="content"><div class="tag">
-      <h3>Space Mission Analysis</h3></div></div></div>
-
-      <!--Project-1-->
-      <div class="box"><a href="https://github.com/rgowtham25/Clothing-Consultant-Bot">
-      <img src=".\assets\images\projects\ClothingBot.jpg"alt="clothingbot"></a><div class="content"><div class="tag">
-      <h3>Clothing Consultant Bot</h3></div></div></div>
-
-      <!--Project-2-->
-      <div class="box"><a href="https://github.com/rgowtham25/Real-Estate-Web-Scraping">
-      <img src=".\assets\images\projects\scraping.jpg"alt="webscraping"></a><div class="content"><div class="tag">
-      <h3>Real Estate Web Scraping</h3></div></div></div>
-
-      <!--Project-3-->
-      <div class="box"><a href="https://github.com/rgowtham25/Sales-Report-Generation">
-      <img src=".\assets\images\projects\sales.jpg"alt="report"></a><div class="content"><div class="tag">
-      <h3>Sales Report Generation</h3></div></div></div>
-
-      <!--Project-4-->
-      <div class="box"><a href="https://github.com/rgowtham25/An-Analysis-of-Female-Representation-in-Hollywood">
-      <img src=".\assets\images\projects\women.png"alt="Hollywood"></a><div class="content"><div class="tag">
-      <h3>An Analysis of Female Representation in Hollywood</h3></div></div></div>     
-      
-      <!--Project-7-->
-      <div class="box"><a href="https://github.com/rgowtham25/Instagram-Reach-Analysis">
-      <img src=".\assets\images\projects\insta.png" alt="Instagram"></a><div class="content"><div class="tag">
-      <h3>Instagram Reach Analysis</h3></div></div></div>
-      
-
-      <!-- Project-8
-      <div class="box"><a href="https://github.com/rgowtham25/hybrid-algorithm-cryptography-concept-project">
-      <img src=".\assets\images\projects\pictorial_view.jpg" alt="HybridAlogrithm"></a><div class="content"><div class="tag">
-      <h3>Design and Analysis of Cryptographic Technique for Communication System</h3></div></div></div> -->
-
-
-      <!--Project-9-->
-      <div class="box"><a href="https://github.com/rgowtham25/Design-and-Implementation-of-Anti-Counterfeit-System-using-Blockchain">
-      <img src=".\assets\images\projects\blockchain.png" alt="Blockchain"></a><div class="content"><div class="tag">
-      <h3>Design and Implementation of Anti-Counterfeit System using Blockchain</h3></div></div></div>
-      
-    </div>
-    <div class="viewall">
-      <a href="https://github.com/rgowtham25" class="btn"><span>View More Projects</span><i class="fas fa-chevron-right"></i></a>
-    </div>
-  </div>
 </section>
 <!-- work project section ends -->
 
 <!-- experience section starts -->
 <section class="experience" id="experience">
-  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
-  <div class="timeline">
-    <div class="container left"><div class="content"><div class="tag"><h2>Valuestream Business Solutions Pvt ltd</h2></div><div class="desc">
-      <h3>Python Developer</h3><p>July 2024 - Present</p><br>
-      <p>
-        · Streamlined high-volume invoice processing for Flipkart, ensuring accuracy and efficiency across financial workflows, and supporting timely transaction management. 
-        · Designed and deployed an automated dashboard for Tanishq, updating hourly, updating hourly for real-time insights into KPIs. 
-        · Developed a python-based model for Auto Failure report for Exide Life Insurance using pandas.
-        · Implemented a model for auto agent assignment, saving 15 minutes per hour, optimizing resource allocation through Dash. 
-        · Developed a web app to clean phone number data for CANHSBC Bank, improving data accuracy and processing efficiency. 
-      <br><br><b>Skills</b>:  Python(Pandas, NumPy, Matplotlib, Dash Plotly) · Power BI · PostgreSQL · Machine Learning · Docker · Azure - DIS</p></div></div></div>
-
-    <div class="container right"><div class="content"><div class="tag"><h2>Senchola</h2></div><div class="desc">
-    <h3>Data Analyst Intern</h3><p>September 2023 - December 2023</p><br>
-    <p>
-      · Design report dashboard for monitoring business performance and decision making. Identify business opportunities for the company through business insights from data. 
-      · Define new data collection and analyze patterns and trend in datasets. 
-      · Develop report automation using Microsoft Excel, MS SQL and Power BI. Perform quality control and monitor operation KPIs
-    <br><br><b>Skills</b>:  Advanced Excel · Advanced SQL · Microsoft Power BI </p></div></div></div>
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> <span>Experience</span></h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Python Developer</h3>
+                    <h4>Valuestream Business Solutions Pvt Ltd</h4>
+                    <p class="timeline-date">July 2024 - Present</p>
+                    <ul>
+                        <li>Streamlined high-volume invoice processing for Flipkart, ensuring accuracy and efficiency</li>
+                        <li>Designed and deployed an automated dashboard for Tanishq, updating hourly for real-time insights</li>
+                        <li>Developed a Python-based model for Auto Failure report for Exide Life Insurance</li>
+                        <li>Implemented a model for auto agent assignment, saving 15 minutes per hour</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Power BI</span>
+                        <span>PostgreSQL</span>
+                        <span>Machine Learning</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+            </div>
             
-    <div class="container left"><div class="content"><div class="tag"><h2>ClaySys Technologies</h2></div><div class="desc">
-    <h3>Product Engineer(L1) / RPA Developer</h3><p>January 2023 - June 2023</p><br>
-    <p>
-      · Designed and implemented 8+ Ui modules, resulting in a 75% increase in user satisfaction on RPA Genie 8.0 project. 
-      · Performed activities such as web scraping, excel automation and such more. Automated daily activities through RPA Genie.
-      · Extensions of RPA tools, data manipulation, or integration with external systems. Creating Or Modifying Existing Code To Add New Features And Improve Performance.
-      · Developed End-To-End offcampus placement drive portal for Claysys with 10+ different modules for Hiring Students.      
-    <br><br><b>Skills</b>:  RPA Genie · ASP.Net · MVC · SQL Server · Javascript · Angular JS · GitHub</p></div></div></div>
-          
-    <div class="container right"><div class="content"><div class="tag"><h2>FINAL PROJECT(Vatshayan Technologies)</h2></div><div class="desc">
-    <h3>Freelancer Developer(Blockchain)</h3><p>September 2022 - Present</p><br>
-    <p> Developed 9+ projects for various clients and including supporting the projects too
-    <br><br><b>Skills</b>:  Python · Machine Learning · Blockain · Full Stack Development</p></div></div></div>
-
-  </div><br>
-  <div class="morebtn">
-    <a href="" class="btn"><span>MORE TO DO</span>
-      <i class="fas fa-arrow-right"></i>
-  </a>
-  </div>
-</div>
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Data Analyst Intern</h3>
+                    <h4>Senchola</h4>
+                    <p class="timeline-date">September 2023 - December 2023</p>
+                    <ul>
+                        <li>Designed report dashboards for monitoring business performance</li>
+                        <li>Identified business opportunities through data insights</li>
+                        <li>Defined new data collection methods and analyzed patterns</li>
+                        <li>Developed report automation using Excel, SQL and Power BI</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>Advanced Excel</span>
+                        <span>SQL</span>
+                        <span>Power BI</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Product Engineer(L1) / RPA Developer</h3>
+                    <h4>ClaySys Technologies</h4>
+                    <p class="timeline-date">January 2023 - June 2023</p>
+                    <ul>
+                        <li>Designed and implemented 8+ UI modules, increasing user satisfaction by 75%</li>
+                        <li>Performed web scraping, Excel automation and other RPA tasks</li>
+                        <li>Extended RPA tools, data manipulation, and system integration</li>
+                        <li>Developed an end-to-end off-campus placement drive portal</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>RPA Genie</span>
+                        <span>ASP.Net</span>
+                        <span>MVC</span>
+                        <span>SQL Server</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3>Freelancer Developer</h3>
+                    <h4>Vatshayan Technologies</h4>
+                    <p class="timeline-date">September 2022 - Present</p>
+                    <ul>
+                        <li>Developed 9+ projects for various clients</li>
+                        <li>Provided ongoing support and maintenance for projects</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Machine Learning</span>
+                        <span>Blockchain</span>
+                        <span>Full Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+<!-- experience section ends -->
 
 <!-- Skills Section Starts -->
 <section class="skills" id="skills">
-  <div class="container">
-    <div class="heading">
-      <h2>Abilities <span>&</span> Skills</h2><br>
+    <div class="container">
+        <h2 class="section-title">Abilities <span>&</span> Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4>Python</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>C#</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>SQL</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Data Science & ML</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Pandas</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Machine Learning</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>Deep Learning</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4>Power BI</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>RPA - UiPath</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h4>Git & GitHub</h4>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-
-      <div class="bar"><div class="info"><span>Statistics & Probability</span></div></div>
-      <div class="bar"><div class="info"><span>Python</span></div></div>
-      <div class="bar"><div class="info"><span>Numpy</span></div></div>
-      <div class="bar"><div class="info"><span>Pandas</span></div></div>
-      <div class="bar"><div class="info"><span>Matplotlib</span></div></div>
-      <div class="bar"><div class="info"><span>Seaborn</span></div></div>
-      <div class="bar"><div class="info"><span>Scikit-Learn</span></div></div>
-      <div class="bar"><div class="info"><span>C#</span></div></div>
-      <div class="bar"><div class="info"><span>SQL</span></div></div>
-      <div class="bar"><div class="info"><span>Advanced Excel</span></div></div>
-      <div class="bar"><div class="info"><span>Power BI</span></div></div>
-      <div class="bar"><div class="info"><span>Machine Learning</span></div></div>
-      <div class="bar"><div class="info"><span>Deep Learning & Neural Network</span></div></div>
-      <div class="bar"><div class="info"><span>RPA - UiPath</span></div></div>
-      <div class="bar"><div class="info"><span>Power Automate Desktop & Cloud</span></div></div>
-      <div class="bar"><div class="info"><span>Git & GitHub</span></div></div>
-
-    </div>
-  </div>
 </section>
 <!-- skills section ends -->
 
-<!-- footer section starts -->
-<section class="footer">
-
-  <div class="box-container">
-
-      <div class="box">
-          <h3>Gowtham R's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀<br><br> <a href="https://www.linkedin.com/in/gowthamr25/">CONTACT ME</a> </p>
-      </div>
-
-      <div class="box">
-          <h3>quick links</h3>
-          <a class="active" href="#home">Home</a>
-          <a href="#education">Education</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-      </div>
-      
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 9750257792</p>
-          <p> <i class="fas fa-envelope"></i>rgowtham2502@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Tamilnadu, India</p>
-          <div class="share"> 
-            <li><a class="gmail" aria-label="Gmail" href="mailto:rgowtham2502@gmail.com" target="_blank"><i class="fa fa-envelope" style="color:darkblue"></i></a></li> 
-            <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/gowthamr25/" target="_blank"><i class="fab fa-linkedin" style="color:darkblue"></i></a></li> 
-            <li><a class="github" aria-label="GitHub" href= "https://github.com/rgowtham25" target="_blank"><i class="fab fa-github" style="color:darkblue"></i></a></li>
-          
-          </div>
-      </div>
-  </div>
+<!-- contact section starts -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title"><i class="fas fa-envelope"></i> <span>Contact</span> Me</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>Bangalore, India</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+91 9750257792</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>rgowtham2502@gmail.com</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/gowthamr25/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/rgowtham25" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rgowtham2502@gmail.com" class="social-link" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
+<!-- contact section ends -->
+
+<!-- footer section starts -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="/" class="logo">
+                    <i class="fas fa-cog fa-spin"></i> <span>RG</span>
+                </a>
+                <p>AI/ML Engineer & Python Developer</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/gowthamr25/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/rgowtham25" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:rgowtham2502@gmail.com" class="social-link" target="_blank">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 9750257792</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>rgowtham2502@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bangalore, India</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> Gowtham R. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart"></i> by Gowtham R</p>
+        </div>
+    </div>
+</footer>
 <!-- footer section ends -->
 
-
 <!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<a href="#home" aria-label="ScrollTop" class="scroll-top" id="scroll-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
 <!-- scroll back to top -->
 
 <!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->

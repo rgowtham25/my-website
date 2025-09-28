@@ -1,229 +1,327 @@
-$(document).ready(function () {
+// Preloader
+window.addEventListener('load', function() {
+    const loader = document.querySelector('.loader-container');
+    loader.classList.add('fade-out');
+    setTimeout(() => {
+        loader.style.display = 'none';
+    }, 500);
+});
 
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
+// Typed.js for typing animation
+document.addEventListener('DOMContentLoaded', function() {
+    const options = {
+        strings: ['Gen AI Engineer', 'LLM Engineer', 'AI/ML Engineer', 'Prompt Engineer', 'Data Scientist', 'Python Developer', 'RPA Developer'],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|'
+    };
+    
+    const typingText = document.querySelector('.typing-text');
+    if (typingText) {
+        new Typed(typingText, options);
+    }
+});
 
-    $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
-        $('.navbar').removeClass('nav-toggle');
+// Sticky header
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.padding = '1rem 0';
+        header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.padding = '1.5rem 0';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    }
+});
 
-        if (window.scrollY > 60) {
-            document.querySelector('#scroll-top').classList.add('active');
-        } else {
-            document.querySelector('#scroll-top').classList.remove('active');
+// Active navigation link
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar ul li a');
+
+window.addEventListener('scroll', function() {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
         }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
 
-        // scroll spy
-        $('section').each(function () {
-            let height = $(this).height();
-            let offset = $(this).offset().top - 200;
-            let top = $(window).scrollTop();
-            let id = $(this).attr('id');
+// Scroll to top button
+const scrollTopBtn = document.getElementById('scroll-top');
 
-            if (top > offset && top < offset + height) {
-                $('.navbar ul li a').removeClass('active');
-                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('active');
+    } else {
+        scrollTopBtn.classList.remove('active');
+    }
+});
+
+scrollTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Vanilla tilt for image tilt effect
+VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2
+});
+
+// Project filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        filterBtns.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 100);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
             }
         });
     });
-
-    // smooth scrolling
-    $('a[href*="#"]').on('click', function (e) {
-        e.preventDefault();
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        }, 500, 'linear')
-    });
-
 });
 
-document.addEventListener('visibilitychange',
-    function () {
-        if (document.visibilityState === "visible") {
-            document.title = "Gowtham R Portfolio";
-            $("#favicon").attr("href", "assets/images/favicon.png");
+// Contact form
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple validation
+        if (name === '' || email === '' || subject === '' || message === '') {
+            showNotification('Please fill in all fields', 'error');
+            return;
+        }
+        
+        // Here you would normally send the form data to a server
+        // For demo purposes, we'll just show a success message
+        showNotification('Your message has been sent successfully!', 'success');
+        contactForm.reset();
+    });
+}
+
+// Notification function
+function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+        <button class="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    
+    // Add notification to DOM
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Close notification when close button is clicked
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    });
+    
+    // Auto close after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
+
+// Add notification styles
+const notificationStyles = document.createElement('style');
+notificationStyles.innerHTML = `
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 300px;
+        z-index: 10000;
+        transform: translateX(150%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .notification.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .notification.success {
+        border-left: 4px solid #4caf50;
+    }
+    
+    .notification.error {
+        border-left: 4px solid #f44336;
+    }
+    
+    .notification-content {
+        display: flex;
+        align-items: center;
+    }
+    
+    .notification-content i {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .notification.success i {
+        color: #4caf50;
+    }
+    
+    .notification.error i {
+        color: #f44336;
+    }
+    
+    .notification-content span {
+        font-size: 16px;
+        color: #333;
+    }
+    
+    .notification-close {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+        margin-left: 15px;
+        transition: color 0.3s ease;
+    }
+    
+    .notification-close:hover {
+        color: #333;
+    }
+`;
+document.head.appendChild(notificationStyles);
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            const navToggle = document.getElementById('nav-toggle');
+            if (navToggle && navToggle.checked) {
+                navToggle.checked = false;
+            }
         }
     });
-
-
-// <!-- typed js effect starts -->
-var typed = new Typed(".typing-text", {
-    strings: ["Generative AI", "AI Agents", "Promopt Engineer", "Vibe Coding", "Machine Learning", "Data Science"],
-    loop: true,
-    typeSpeed: 50,
-    backSpeed: 25,
-    backDelay: 500,
 });
-// <!-- typed js effect ends -->
 
+// Current year in footer
+document.getElementById('current-year').textContent = new Date().getFullYear();
 
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
-    const data = await response.json();
-    return data;
+// Animation on scroll
+const revealElements = document.querySelectorAll('.section-title, .edu-card, .project-card, .timeline-item, .skill-item, .contact-item');
+
+function revealOnScroll() {
+    revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('revealed');
+        }
+    });
 }
 
-function showSkills() {
-    let skillsContainer = document.getElementById("skillsContainer");
-    let skillHTML = "";
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll(); // Run once on load
+
+// Add CSS for reveal animation
+const revealStyles = document.createElement('style');
+revealStyles.innerHTML = `
+    .section-title, .edu-card, .project-card, .timeline-item, .skill-item, .contact-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
     
-    // Fetch the data from the JSON file
-    fetch('path/to/skills.json')
-      .then(response => response.json()) // Parse the JSON data into an object
-      .then(skills => {
-        // Loop through each skill and generate the HTML code
-        skills.forEach(skill => {
-          skillHTML += `
-            <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`;
-        });
-        // Insert the HTML code into the skills container element
-        skillsContainer.innerHTML = skillHTML;
-      });
-  }
-  
-
-function showProjects(projects) {
-    let projectsContainer = document.querySelector("#work .box-container");
-    let projectHTML = "";
-    projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
-        projectHTML += `
-        <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
-      <div class="content">
-        <div class="tag">
-        <h3>${project.name}</h3>
-        </div>
-        <div class="desc">
-          <p>${project.desc}</p>
-          <div class="btns">
-            <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>`
-    });
-    projectsContainer.innerHTML = projectHTML;
-
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
-
-}
-
-fetchData().then(data => {
-    showSkills(data);
-});
-
-fetchData("projects").then(data => {
-    showProjects(data);
-});
-
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-});
-// <!-- tilt js effect ends -->
-
-
-// pre loader start
-// function loader() {
-//     document.querySelector('.loader-container').classList.add('fade-out');
-// }
-// function fadeOut() {
-//     setInterval(loader, 500);
-// }
-// window.onload = fadeOut;
-// pre loader end
-
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
+    .revealed {
+        opacity: 1;
+        transform: translateY(0);
     }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
+    
+    .timeline-item:nth-child(even) {
+        transform: translateX(30px);
     }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
+    
+    .timeline-item:nth-child(even).revealed {
+        transform: translateX(0);
     }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-}
-
-// Start of Tawk.to Live Chat
-
-// End of Tawk.to Live Chat
-
-
-/* ===== SCROLL REVEAL ANIMATION ===== */
-const srtop = ScrollReveal({
-    origin: 'top',
-    distance: '80px',
-    duration: 1000,
-    reset: true
-});
-
-/* SCROLL HOME */
-srtop.reveal('.home .content h3', { delay: 200 });
-srtop.reveal('.home .content p', { delay: 200 });
-srtop.reveal('.home .content .btn', { delay: 200 });
-
-srtop.reveal('.home .image', { delay: 400 });
-srtop.reveal('.home .linkedin', { interval: 600 });
-srtop.reveal('.home .github', { interval: 800 });
-srtop.reveal('.home .dev', { interval: 600 });
-
-/* SCROLL ABOUT */
-srtop.reveal('.about .content h3', { delay: 200 });
-srtop.reveal('.about .content .tag', { delay: 200 });
-srtop.reveal('.about .content p', { delay: 200 });
-srtop.reveal('.about .content .box-container', { delay: 200 });
-srtop.reveal('.about .content .resumebtn', { delay: 200 });
-
-
-/* SCROLL SKILLS */
-srtop.reveal('.skills .container', { interval: 200 });
-srtop.reveal('.skills .container .bar', { delay: 400 });
-
-/* SCROLL EDUCATION */
-srtop.reveal('.education .box', { interval: 200 });
-
-/* SCROLL PROJECTS */
-srtop.reveal('.work .box', { interval: 200 });
-
-/* SCROLL EXPERIENCE */
-srtop.reveal('.experience .timeline', { delay: 400 });
-srtop.reveal('.experience .timeline .container', { interval: 400 });
-
-/* SCROLL CONTACT */
-srtop.reveal('.contact .container', { delay: 400 });
-srtop.reveal('.contact .container .form-group', { delay: 400 });
+`;
+document.head.appendChild(revealStyles);
