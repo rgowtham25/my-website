@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+// Experience Section Interaction
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const experienceDetails = document.querySelectorAll('.experience-detail');
+    
+    timelineItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const expId = this.getAttribute('data-exp');
+            
+            // Remove active class from all items and details
+            timelineItems.forEach(i => i.classList.remove('active'));
+            experienceDetails.forEach(d => d.classList.remove('active'));
+            
+            // Add active class to clicked item and corresponding detail
+            this.classList.add('active');
+            document.getElementById(`exp-${expId}`).classList.add('active');
+        });
+    });
+});
+
+
 // Sticky header
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
@@ -325,3 +347,5 @@ revealStyles.innerHTML = `
     }
 `;
 document.head.appendChild(revealStyles);
+
+
