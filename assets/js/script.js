@@ -10,11 +10,11 @@ window.addEventListener('load', function() {
 // Typed.js for typing animation
 document.addEventListener('DOMContentLoaded', function() {
     const options = {
-        strings: ['Gen AI Engineer', 'LLM Engineer', 'AI/ML Engineer', 'Prompt Engineer', 'Data Scientist', 'Python Developer', 'RPA Developer'],
+        strings: ['GenAI / LLM Engineer & Python Developer'],
         typeSpeed: 50,
         backSpeed: 30,
         backDelay: 2000,
-        loop: true,
+        loop: false,
         showCursor: true,
         cursorChar: '|'
     };
@@ -124,7 +124,10 @@ filterBtns.forEach(btn => {
         const filter = this.getAttribute('data-filter');
         
         projectCards.forEach(card => {
-            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            const categories = (card.getAttribute('data-category') || '')
+                .split(/\s+/)
+                .filter(Boolean);
+            if (filter === 'all' || categories.includes(filter)) {
                 card.style.display = 'block';
                 setTimeout(() => {
                     card.style.opacity = '1';
@@ -308,7 +311,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
 // Animation on scroll
-const revealElements = document.querySelectorAll('.section-title, .edu-card, .project-card, .timeline-item, .skill-item, .contact-item');
+const revealElements = document.querySelectorAll('.section-title, .edu-card, .project-card, .experience-item, .skill-item, .cert-card, .award-card, .contact-item');
 
 function revealOnScroll() {
     revealElements.forEach(element => {
@@ -327,7 +330,7 @@ revealOnScroll(); // Run once on load
 // Add CSS for reveal animation
 const revealStyles = document.createElement('style');
 revealStyles.innerHTML = `
-    .section-title, .edu-card, .project-card, .timeline-item, .skill-item, .contact-item {
+    .section-title, .edu-card, .project-card, .experience-item, .skill-item, .cert-card, .award-card, .contact-item {
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease, transform 0.6s ease;
@@ -338,14 +341,12 @@ revealStyles.innerHTML = `
         transform: translateY(0);
     }
     
-    .timeline-item:nth-child(even) {
+    .experience-item:nth-child(even) {
         transform: translateX(30px);
     }
     
-    .timeline-item:nth-child(even).revealed {
+    .experience-item:nth-child(even).revealed {
         transform: translateX(0);
     }
 `;
 document.head.appendChild(revealStyles);
-
-
