@@ -348,6 +348,26 @@ margin-bottom: 2.5rem;
 color: var(--text-light);
 }
 
+.home .content .hero-tagline {
+font-size: 1.8rem;
+margin-bottom: 1.5rem;
+}
+
+.hero-summary {
+margin-bottom: 2.5rem;
+}
+
+.hero-summary p {
+font-size: 1.6rem;
+line-height: 1.7;
+margin-bottom: 0.8rem;
+color: var(--text-light);
+}
+
+.hero-summary p:last-child {
+margin-bottom: 0;
+}
+
 .hero-buttons {
 display: flex;
 gap: 1.5rem;
@@ -777,7 +797,7 @@ margin-bottom: 0;
 
 .about-highlights {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
+grid-template-columns: repeat(2, minmax(0, 1fr));
 gap: 1.5rem;
 margin-bottom: 2.5rem;
 }
@@ -880,8 +900,8 @@ background: #f8f9fa;
 }
 
 .education-cards {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+display: flex;
+justify-content: center;
 gap: 2rem;
 }
 
@@ -893,6 +913,8 @@ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 transition: var(--transition);
 display: flex;
 flex-direction: column;
+max-width: 520px;
+width: 100%;
 }
 
 .edu-card:hover {
@@ -945,6 +967,14 @@ margin-top: auto;
 /* Projects Section */
 .projects {
 background: white;
+}
+
+.projects-subtitle {
+font-size: 1.7rem;
+text-align: center;
+color: var(--text-light);
+margin: -1.5rem auto 3rem;
+max-width: 760px;
 }
 
 .project-filters {
@@ -1056,6 +1086,72 @@ color: var(--dark-color);
 .project-info p {
 font-size: 1.4rem;
 color: var(--text-light);
+}
+
+.project-category {
+display: inline-flex;
+align-items: center;
+padding: 0.3rem 0.9rem;
+border-radius: 99px;
+background: rgba(67, 97, 238, 0.12);
+color: var(--primary-color);
+font-size: 1.2rem;
+font-weight: 600;
+margin-bottom: 0.8rem;
+}
+
+.project-tagline {
+font-size: 1.5rem;
+font-weight: 600;
+color: #3f37c9;
+margin-bottom: 0.8rem;
+}
+
+.project-description {
+font-size: 1.35rem;
+line-height: 1.6;
+margin-bottom: 1rem;
+}
+
+.project-tech-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 0.6rem;
+margin-top: 1rem;
+}
+
+.project-tech-tags span {
+padding: 0.3rem 0.8rem;
+background: rgba(67, 97, 238, 0.1);
+color: var(--primary-color);
+border-radius: 1rem;
+font-size: 1.2rem;
+font-weight: 500;
+}
+
+.project-highlights {
+margin: 1rem 0 0;
+padding-left: 1.8rem;
+}
+
+.project-highlights li {
+font-size: 1.35rem;
+line-height: 1.6;
+color: var(--text-light);
+margin-bottom: 0.5rem;
+}
+
+.project-github {
+display: inline-flex;
+align-items: center;
+margin-top: 1rem;
+font-size: 1.4rem;
+font-weight: 600;
+color: var(--primary-color);
+}
+
+.project-github:hover {
+color: var(--secondary-color);
 }
 
 .view-all {
@@ -1172,6 +1268,20 @@ color: #560bad;
 font-weight: 600;
 }
 
+.job-location {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+margin-top: 0.6rem;
+font-size: 1.4rem;
+color: #666;
+}
+
+.job-location i {
+color: #560bad;
+font-size: 1.2rem;
+}
+
 .job-duration {
 font-size: 1.4rem;
 color: #666;
@@ -1183,6 +1293,17 @@ white-space: nowrap;
 
 .job-description {
 margin-bottom: 1.5rem;
+}
+
+.job-summary {
+font-size: 1.5rem;
+color: #555;
+line-height: 1.6;
+margin-bottom: 1rem;
+}
+
+.job-summary strong {
+color: #333;
 }
 
 .job-description ul {
@@ -1509,6 +1630,142 @@ margin-bottom: 1rem;
 }
 }
 
+/* Certifications Section */
+.certifications {
+background: #fff;
+}
+
+.cert-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+}
+
+.cert-card {
+background: #f8f9fa;
+border: 1px solid rgba(67, 97, 238, 0.12);
+border-radius: 1.2rem;
+padding: 2rem;
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+transition: var(--transition);
+}
+
+.cert-card:hover {
+transform: translateY(-6px);
+box-shadow: var(--box-shadow);
+}
+
+.featured-cert {
+background: linear-gradient(135deg, rgba(67, 97, 238, 0.08), rgba(114, 9, 183, 0.08));
+border: 1px solid rgba(114, 9, 183, 0.35);
+}
+
+.featured-badge {
+display: inline-block;
+margin-bottom: 1rem;
+padding: 0.3rem 1rem;
+border-radius: 999px;
+font-size: 1.2rem;
+font-weight: 700;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+background: rgba(114, 9, 183, 0.15);
+color: #560bad;
+}
+
+.cert-header {
+display: flex;
+align-items: center;
+gap: 1.2rem;
+margin-bottom: 1.2rem;
+}
+
+.issuer-logo {
+width: 4.2rem;
+height: 4.2rem;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.5rem;
+font-weight: 700;
+color: #fff;
+flex-shrink: 0;
+}
+
+.anthropic-logo {
+background: linear-gradient(135deg, #111827, #4b5563);
+}
+
+.dlai-logo {
+background: linear-gradient(135deg, #0f766e, #0ea5e9);
+}
+
+.cisco-logo {
+background: linear-gradient(135deg, #005073, #107dac);
+}
+
+.oracle-logo {
+background: linear-gradient(135deg, #c8102e, #f44336);
+}
+
+.issuer-meta h3 {
+font-size: 1.7rem;
+font-weight: 700;
+color: var(--dark-color);
+line-height: 1.4;
+}
+
+.issuer-name {
+font-size: 1.4rem;
+color: #560bad;
+font-weight: 600;
+margin-top: 0.3rem;
+}
+
+.cert-date {
+font-size: 1.4rem;
+color: var(--text-light);
+font-weight: 500;
+}
+
+/* Awards Section */
+.awards {
+background: linear-gradient(135deg, #f8f9fa 0%, #eef2ff 100%);
+}
+
+.awards-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 2rem;
+}
+
+.award-card {
+background: #fff;
+border-radius: 1.2rem;
+padding: 2rem;
+border-left: 5px solid #560bad;
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+transition: var(--transition);
+}
+
+.award-card:hover {
+transform: translateY(-6px);
+box-shadow: var(--box-shadow);
+}
+
+.award-card h3 {
+font-size: 1.9rem;
+color: var(--dark-color);
+margin-bottom: 0.8rem;
+}
+
+.award-card p {
+font-size: 1.5rem;
+color: var(--text-light);
+line-height: 1.6;
+}
+
 /* Contact Section */
 .contact {
 background: #f8f9fa;
@@ -1564,6 +1821,17 @@ color: var(--dark-color);
 .contact-details p {
 font-size: 1.5rem;
 color: var(--text-light);
+}
+
+.contact-details a {
+color: var(--primary-color);
+font-weight: 500;
+word-break: break-word;
+}
+
+.contact-details a:hover {
+color: var(--secondary-color);
+text-decoration: underline;
 }
 
 .social-links {
@@ -1712,6 +1980,15 @@ color: #ccc;
 margin-right: 1rem;
 color: var(--primary-color);
 font-size: 1.8rem;
+}
+
+.footer-contact ul li a {
+color: #ccc;
+transition: var(--transition);
+}
+
+.footer-contact ul li a:hover {
+color: var(--primary-color);
 }
 
 .footer-bottom {
