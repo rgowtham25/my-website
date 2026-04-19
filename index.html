@@ -1,971 +1,1233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="keywords" content="gowtham, portfolio, r, Machine Learning, personal portfolio, portfolio design, portfolio website, personal portfolio" />
-<meta name="description" content="Welcome to Gowtham's Portfolio. AI/ML Engineer & Python Developer"/>
-<link rel="stylesheet" href="./assets/css/style.css"> <!-- Custom CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link id='favicon' rel="shortcut icon" href="./assets/images/test.PNG" type="image/x-png">
-<title>Gowtham R</title>
-<!-- Google tag (gtag.js) Starts -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JNBQXGQJJF"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gowtham R</title>
+  <meta name="description" content="GenAI / LLM Engineer & Python Developer building production-grade AI systems in Bangalore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: #f5f2ed;
+      color: #0f0f0f;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; }
 
-gtag('config', 'G-JNBQXGQJJF');
-</script>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --accent: #c84b1f;
+      --accent-light: rgba(200,75,31,0.1);
+      --accent-border: rgba(200,75,31,0.25);
+      --bg: #f5f2ed;
+      --bg-white: #ffffff;
+      --text: #0f0f0f;
+      --text-secondary: rgba(0,0,0,0.5);
+      --text-tertiary: rgba(0,0,0,0.35);
+      --border: rgba(0,0,0,0.09);
+      --border-strong: rgba(0,0,0,0.15);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 100px;
+    }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    section { padding: 64px 0; }
+
+    /* =============================================
+       TYPOGRAPHY UTILITIES
+    ============================================= */
+    .serif { font-family: 'Fraunces', Georgia, serif; }
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+    }
+    .eyebrow-line { width: 28px; height: 1.5px; background: var(--accent); flex-shrink: 0; }
+    .eyebrow-text {
+      font-size: 11px; font-weight: 600; color: var(--accent);
+      letter-spacing: 2.5px; text-transform: uppercase;
+    }
+    .section-heading {
+      font-family: 'Fraunces', serif; font-size: 44px; font-weight: 900;
+      color: var(--text); letter-spacing: -1.5px; line-height: 1.0;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--text-secondary);
+      font-weight: 300; max-width: 500px; line-height: 1.75; margin-top: 12px;
+    }
+    .divider { height: 1px; background: var(--border); }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: var(--radius-pill);
+      font-size: 14px; font-weight: 500; transition: all 0.2s; border: none;
+    }
+    .btn-dark {
+      background: var(--text); color: var(--bg);
+    }
+    .btn-dark:hover { background: var(--accent); }
+    .btn-accent {
+      background: var(--accent); color: #fff;
+    }
+    .btn-accent:hover { background: #a33a16; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent; color: var(--text-secondary);
+      border: 1.5px solid var(--border-strong);
+    }
+    .btn-outline:hover { border-color: var(--text); color: var(--text); }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 60px;
+      background: rgba(245,242,237,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.06); }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 48px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: 20px; color: var(--text); letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: var(--text-secondary); font-size: 14px;
+      font-weight: 400; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta {
+      background: var(--text) !important; color: var(--bg) !important;
+      padding: 8px 20px; border-radius: var(--radius-pill);
+      font-size: 13px !important; font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+    .nav-hamburger { display: none; background: none; border: none; padding: 4px; }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--text); margin: 5px 0; transition: all 0.25s;
+    }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      padding-top: 60px; padding-bottom: 0;
+      min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .hero-top {
+      max-width: 1100px; margin: 0 auto; padding: 48px 48px 0;
+      width: 100%; flex: 1; display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-main {
+      display: flex; gap: 56px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-light); border: 1px solid var(--accent-border);
+      border-radius: var(--radius-pill); padding: 7px 16px; margin-bottom: 20px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.25); }
+    }
+    .hero-badge span { font-size: 12px; color: var(--accent); font-weight: 500; letter-spacing: 0.3px; }
+    .hero-headline {
+      font-family: 'Fraunces', serif; font-size: 76px; font-weight: 900;
+      line-height: 0.92; letter-spacing: -3px; color: var(--text);
+    }
+    .hero-left { flex: 1; }
+    .hero-headline em { font-style: italic; color: var(--accent); }
+    .hero-photo-col { flex-shrink: 0; }
+    .hero-photo {
+      width: 200px; height: 200px; border-radius: 50%;
+      border: 2.5px solid var(--text); overflow: hidden; flex-shrink: 0;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-divider { height: 1px; background: var(--border); margin: 28px 48px 0; max-width: 1100px; width: calc(100% - 96px); }
+    .hero-sub {
+      max-width: 1100px; width: 100%; margin: 0 auto; padding: 28px 48px 36px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end;
+    }
+    .hero-desc {
+      font-size: 16px; color: var(--text-secondary);
+      line-height: 1.85; font-weight: 300;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 500; }
+    .hero-actions { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+    .hero-role-pill {
+      background: var(--text); color: var(--bg); font-size: 13px;
+      font-weight: 400; padding: 8px 18px; border-radius: var(--radius-pill);
+    }
+    .hero-btns { display: flex; gap: 10px; }
+
+    /* Stats */
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat {
+      padding: 20px 48px; border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Fraunces', serif; font-size: 34px; font-weight: 900;
+      color: var(--text); letter-spacing: -1.5px; line-height: 1; margin-bottom: 5px;
+    }
+    .stat-num em { color: var(--accent); font-style: normal; }
+    .stat-lbl { font-size: 12px; color: var(--text-tertiary); line-height: 1.55; font-weight: 300; }
+
+    /* Clients */
+    .clients-strip {
+      display: flex; align-items: center; gap: 20px;
+      padding: 18px 48px; background: var(--bg-white);
+      border-top: 1px solid var(--border);
+    }
+    .clients-lbl {
+      font-size: 10px; color: var(--text-tertiary);
+      letter-spacing: 2.5px; text-transform: uppercase; white-space: nowrap; font-weight: 500;
+    }
+    .clients-rule { flex: 1; height: 1px; background: var(--border); }
+    .clients-list { display: flex; gap: 8px; }
+    .client-chip {
+      font-size: 13px; color: var(--text-secondary);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+      padding: 5px 16px;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+    #about { background: var(--bg-white); }
+    .about-grid {
+      display: grid; grid-template-columns: 5fr 7fr;
+      gap: 80px; margin-top: 32px; align-items: start;
+    }
+    .about-quote {
+      font-family: 'Fraunces', serif; font-size: 34px; font-weight: 700;
+      color: var(--text); line-height: 1.2; letter-spacing: -1px; position: sticky; top: 80px;
+    }
+    .about-quote em { font-style: italic; color: var(--accent); }
+    .about-body {
+      font-size: 16px; color: var(--text-secondary);
+      line-height: 1.9; font-weight: 300; margin-bottom: 36px;
+    }
+    .about-body strong { color: var(--text); font-weight: 500; }
+    .about-body p + p { margin-top: 18px; }
+    .about-table { width: 100%; border-collapse: collapse; }
+    .about-table tr { border-bottom: 1px solid var(--border); }
+    .about-table tr:first-child { border-top: 1px solid var(--border); }
+    .about-table td { padding: 13px 0; font-size: 14px; }
+    .about-table td:first-child { color: var(--text-tertiary); width: 100px; font-weight: 400; }
+    .about-table td:last-child { color: var(--text); font-weight: 500; }
+    .about-table a { color: var(--accent); }
+    .about-table a:hover { text-decoration: underline; }
+
+    /* =============================================
+       EXPERIENCE
+    ============================================= */
+    #experience { }
+    .exp-header { margin-bottom: 32px; }
+    .exp-list { }
+    .exp-item {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 48px; padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    .exp-meta-date { font-size: 12px; color: var(--text-tertiary); margin-bottom: 10px; letter-spacing: 0.3px; }
+    .exp-meta-company {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: var(--text); margin-bottom: 3px; line-height: 1.3;
+    }
+    .exp-meta-loc { font-size: 12px; color: var(--text-tertiary); margin-bottom: 12px; }
+    .exp-current {
+      display: inline-block; background: var(--accent-light);
+      color: var(--accent); font-size: 11px; font-weight: 600;
+      padding: 4px 12px; border-radius: var(--radius-pill); letter-spacing: 0.5px;
+    }
+    .exp-role { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .exp-tagline {
+      font-family: 'Fraunces', serif; font-size: 14px; font-style: italic;
+      color: var(--text-secondary); margin-bottom: 28px;
+    }
+    .exp-projects { display: flex; flex-direction: column; gap: 14px; }
+    .exp-proj {
+      background: #f5f2ed; border-radius: var(--radius-md);
+      padding: 18px 20px; border-left: 3px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .exp-proj:hover { border-left-color: var(--accent); }
+    .exp-proj-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .exp-proj-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .exp-proj-impact {
+      display: inline-block; font-size: 11px; color: var(--accent);
+      font-weight: 600; margin-top: 9px;
+      background: var(--accent-light); padding: 3px 10px;
+      border-radius: var(--radius-pill); letter-spacing: 0.3px;
+    }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+    .exp-bullets li {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.65;
+      padding-left: 18px; position: relative;
+    }
+    .exp-bullets li::before {
+      content: '—'; position: absolute; left: 0;
+      color: var(--accent); font-size: 12px; top: 3px;
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+    .exp-tag {
+      font-size: 11px; color: var(--text-secondary);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+      padding: 4px 12px;
+    }
+
+    /* =============================================
+       PROJECTS
+    ============================================= */
+    #projects { background: var(--bg-white); }
+    .proj-filters {
+      display: flex; gap: 8px; margin-top: 24px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .f-btn {
+      background: transparent; color: var(--text-secondary);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+      padding: 8px 20px; font-size: 13px; font-weight: 400;
+      transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .f-btn:hover { background: rgba(0,0,0,0.05); color: var(--text); }
+    .f-btn.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .proj-card {
+      background: #f5f2ed; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .proj-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.07); }
+    .proj-card.hidden { display: none; }
+    .proj-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .proj-cat { font-size: 11px; color: var(--accent); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+    .proj-gh {
+      font-size: 12px; color: var(--text-tertiary);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+      padding: 5px 12px; white-space: nowrap; transition: all 0.2s;
+    }
+    .proj-gh:hover { color: var(--accent); border-color: var(--accent); }
+    .proj-name {
+      font-family: 'Fraunces', serif; font-size: 21px; font-weight: 700;
+      color: var(--text); letter-spacing: -0.5px; line-height: 1.2;
+    }
+    .proj-tagline { font-size: 13px; color: var(--text-secondary); font-style: italic; font-family: 'Fraunces', serif; }
+    .proj-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.75; font-weight: 300; }
+    .proj-bullets { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .proj-bullets li {
+      font-size: 13px; color: var(--text-secondary);
+      padding-left: 14px; position: relative; line-height: 1.55;
+    }
+    .proj-bullets li::before {
+      content: '·'; position: absolute; left: 0;
+      color: var(--accent); font-weight: 700; font-size: 18px; line-height: 1;
+    }
+    .proj-tech {
+      display: flex; flex-wrap: wrap; gap: 6px;
+      padding-top: 10px; border-top: 1px solid var(--border); margin-top: auto;
+    }
+    .tech-tag {
+      font-size: 11px; color: var(--text-secondary);
+      background: var(--bg-white); border: 1px solid var(--border);
+      border-radius: var(--radius-pill); padding: 4px 10px;
+    }
+    .proj-footer { text-align: center; padding-top: 40px; }
+    .proj-all-link {
+      font-size: 14px; color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+    }
+    .proj-all-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* =============================================
+       SKILLS
+    ============================================= */
+    #skills { }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 32px; margin-top: 36px;
+    }
+    .skill-group-lbl {
+      font-size: 10px; font-weight: 700; color: var(--text-tertiary);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .s-pill {
+      font-size: 13px; color: rgba(0,0,0,0.6); background: var(--bg-white);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-pill);
+      padding: 6px 14px;
+    }
+    .s-pill.hi {
+      background: var(--accent-light); border-color: var(--accent-border);
+      color: var(--accent); font-weight: 500;
+    }
+
+    /* =============================================
+       CERTIFICATIONS
+    ============================================= */
+    #certifications { background: var(--bg-white); }
+    .certs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 32px;
+    }
+    .cert-card {
+      background: #f5f2ed; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+      display: flex; flex-direction: column; gap: 12px; position: relative; overflow: hidden;
+    }
+    .cert-card.feat { background: var(--text); border-color: var(--text); }
+    .cert-feat-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--accent); color: #fff; font-size: 10px;
+      font-weight: 600; padding: 3px 10px; border-radius: var(--radius-pill); letter-spacing: 0.5px;
+    }
+    .cert-initial {
+      width: 40px; height: 40px; border-radius: var(--radius-sm);
+      background: var(--bg-white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif; font-size: 16px; font-weight: 900; color: var(--text);
+    }
+    .cert-card.feat .cert-initial {
+      background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); color: #fff;
+    }
+    .cert-name { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.35; }
+    .cert-card.feat .cert-name { color: #fff; }
+    .cert-issuer { font-size: 12px; color: var(--text-secondary); }
+    .cert-card.feat .cert-issuer { color: rgba(255,255,255,0.5); }
+    .cert-date { font-size: 11px; color: var(--text-tertiary); margin-top: auto; }
+    .cert-card.feat .cert-date { color: rgba(255,255,255,0.35); }
+
+    /* =============================================
+       AWARDS
+    ============================================= */
+    #awards { }
+    .awards-list { margin-top: 32px; }
+    .award-row {
+      display: flex; align-items: center; gap: 20px;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+    }
+    .award-row:first-child { border-top: 1px solid var(--border); }
+    .award-icon-wrap {
+      width: 44px; height: 44px; border-radius: var(--radius-sm);
+      background: var(--bg-white); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .award-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .award-sub { font-size: 13px; color: var(--text-secondary); }
+
+    /* =============================================
+       EDUCATION
+    ============================================= */
+    #education { background: var(--bg-white); }
+    .edu-card {
+      display: flex; align-items: center; gap: 28px;
+      background: #f5f2ed; border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px 32px; margin-top: 32px;
+    }
+    .edu-logo-wrap {
+      width: 68px; height: 68px; border-radius: var(--radius-md);
+      overflow: hidden; border: 1px solid var(--border);
+      background: var(--bg-white); flex-shrink: 0;
+    }
+    .edu-logo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .edu-degree {
+      font-family: 'Fraunces', serif; font-size: 22px;
+      font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: -0.5px;
+    }
+    .edu-school { font-size: 15px; color: var(--text-secondary); margin-bottom: 8px; }
+    .edu-meta { display: flex; gap: 20px; }
+    .edu-meta span { font-size: 13px; color: var(--text-tertiary); }
+    .edu-meta strong { color: var(--accent); font-weight: 600; }
+
+    /* =============================================
+       CONTACT
+    ============================================= */
+    #contact { }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; margin-top: 36px; align-items: start;
+    }
+    .contact-headline {
+      font-family: 'Fraunces', serif; font-size: 38px; font-weight: 900;
+      color: var(--text); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 18px;
+    }
+    .contact-headline em { font-style: italic; color: var(--accent); }
+    .contact-desc {
+      font-size: 15px; color: var(--text-secondary);
+      line-height: 1.8; font-weight: 300; margin-bottom: 36px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .contact-row { display: flex; align-items: center; gap: 16px; }
+    .contact-lbl {
+      font-size: 11px; color: var(--text-tertiary);
+      letter-spacing: 1.5px; text-transform: uppercase; width: 72px; flex-shrink: 0;
+    }
+    .contact-val {
+      font-size: 14px; color: var(--text); font-weight: 500;
+      transition: color 0.2s;
+    }
+    .contact-val:hover { color: var(--accent); }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: flex; flex-direction: column; gap: 6px; }
+    .form-lbl { font-size: 12px; color: var(--text-secondary); font-weight: 500; letter-spacing: 0.3px; }
+    .form-input, .form-textarea {
+      width: 100%; background: var(--bg-white);
+      border: 1px solid var(--border-strong); border-radius: var(--radius-md);
+      padding: 12px 16px; font-size: 14px; color: var(--text);
+      font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--text); border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', serif; font-weight: 900;
+      font-size: 18px; color: var(--bg); letter-spacing: -0.5px;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* =============================================
+       SCROLL ANIMATIONS
+    ============================================= */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .hero-top { padding: 40px 24px 0; }
+      .hero-divider { margin: 20px 24px 0; width: calc(100% - 48px); }
+      .hero-sub { padding: 20px 24px 32px; grid-template-columns: 1fr; gap: 28px; }
+      .hero-main { flex-direction: row; gap: 16px; align-items: flex-start; justify-content: space-between; }
+      .hero-photo { width: 90px; height: 90px; }
+      .hero-headline { font-size: 44px; letter-spacing: -1.5px; flex: none; }
+      .hero-photo-col { flex-direction: row; justify-content: flex-start; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat { padding: 20px 24px; }
+      .clients-strip { padding: 16px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-quote { position: static; font-size: 28px; }
+      .exp-item { grid-template-columns: 1fr; gap: 20px; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      nav.open .nav-links {
+        display: flex; flex-direction: column; position: absolute;
+        top: 60px; left: 0; right: 0; background: rgba(245,242,237,0.97);
+        backdrop-filter: blur(16px); padding: 20px 24px 28px;
+        border-bottom: 1px solid var(--border); gap: 18px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero-headline { font-size: 44px; letter-spacing: -1.5px; }
+      .section-heading { font-size: 36px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-<body oncontextmenu="return false">
-<!-- Google tag (gtag.js) Ends -->
+<body>
 
-<!-- preloader -->
-<div class="loader-container">
-<div class="loader"></div>
-</div>
-
-<!-- navbar starts -->
-<header>
-<div class="container">
-<a href="/" class="logo">
-<i class="fas fa-cog fa-spin"></i> <span>RG</span>
-</a>
-<input type="checkbox" id="nav-toggle" class="nav-toggle">
-<label for="nav-toggle" class="nav-toggle-label">
-<span></span>
-</label>
-<nav class="navbar">
-<ul>
-<li><a href="#home" class="active">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#awards">Awards</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<!-- =============================================
+     NAVBAR
+============================================= -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">GR<span>.</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
-</div>
-</header>
 
-<!-- hero section starts -->
-<section class="home" id="home">
-<div id="particles-js"></div>
-<div class="container">
-<div class="content">
-<h2>Hi There,<br/> I'm <span>Gowtham R</span></h2>
-<h3 class="typing-text">GenAI / LLM Engineer & Python Developer</h3>
-<p class="hero-tagline">Building production-grade AI systems - RAG pipelines, speech intelligence, and LLM applications - for enterprise scale.</p>
-<div class="hero-summary">
-<p>2+ years of experience delivering AI solutions for companies like Flipkart, Tanishq, and Axis MaxLife.</p>
-<p>Specializing in LLM fine-tuning, RAG architectures, and real-time speech systems that save 100+ operational hours monthly.</p>
-</div>
-<div class="hero-buttons">
-<a href="#projects" class="btn primary-btn">
-<span>View My Work</span>
-<i class="fas fa-arrow-right"></i>
-</a>
-<a href="https://drive.google.com/file/d/1gdAw0cD9RsC3N_Etvwse57VY9Fbh1-il/view?usp=sharing" target="_blank" class="btn secondary-btn">
-<span>Download Resume</span>
-<i class="fas fa-file-download"></i>
-</a>
-</div>
-<div class="socials">
-<a href="mailto:rgowtham2502@gmail.com" class="social-icon" aria-label="Gmail" target="_blank">
-<i class="fas fa-envelope"></i>
-</a>
-<a href="https://www.linkedin.com/in/gowthamr25/" class="social-icon" aria-label="LinkedIn" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-<a href="https://github.com/rgowtham25" class="social-icon" aria-label="GitHub" target="_blank">
-<i class="fab fa-github"></i>
-</a>
-</div>
-</div>
-<div class="image">
-<div class="glitch-container">
-<div class="glitch-image">
-<img draggable="false" src="./assets/images/rg.jpg" alt="Gowtham R">
-<div class="glitch-overlay"></div>
-<div class="glitch-lines">
-<div class="glitch-line"></div>
-<div class="glitch-line"></div>
-<div class="glitch-line"></div>
-</div>
-</div>
-<div class="glitch-border">
-<div class="border-top"></div>
-<div class="border-right"></div>
-<div class="border-bottom"></div>
-<div class="border-left"></div>
-</div>
-<div class="glitch-text">
-<span class="glitch-letter">G</span>
-<span class="glitch-letter">O</span>
-<span class="glitch-letter">W</span>
-<span class="glitch-letter">T</span>
-<span class="glitch-letter">H</span>
-<span class="glitch-letter">A</span>
-<span class="glitch-letter">M</span>
-<span class="glitch-letter"></span>
-<span class="glitch-letter">R</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- hero section ends -->
-
-<!-- about section starts -->
-<section class="about" id="about">
-<div class="container">
-<h2 class="section-title">About Me</h2>
-<div class="about-content">
-<div class="about-image">
-<div class="image-container">
-<img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="Gowtham R">
-<div class="image-overlay">
-<div class="social-icons">
-<a href="https://www.linkedin.com/in/gowthamr25/" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://github.com/rgowtham25" target="_blank"><i class="fab fa-github"></i></a>
-<a href="mailto:rgowtham2502@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-</div>
-</div>
-</div>
-</div>
-<div class="about-text">
-<div class="about-header">
-<h3>I'm <span>Gowtham R</span></h3>
-<div class="tag">AI/ML Engineer | Python Developer</div>
-</div>
-
-<div class="about-description">
-<p>
-I'm a GenAI/AIEngineer based in Bangalore, with 2.4+ years of hands-on experience building intelligent systems that actually ship to production.
-</p>
-<p>
-My work spans the full AI stack - from architecting RAG pipelines and fine-tuning open-source LLMs, to building real-time speech systems and document intelligence platforms. I've delivered enterprise-grade AI solutions for clients including Flipkart, Tanishq, and Axis MaxLife, with measurable impact: 100+ operational hours saved monthly, 80% reduction in information retrieval time, and 95% transcription accuracy across multilingual audio.
-</p>
-<p>
-Outside of work, I'm constantly exploring new tools, certifications, and ideas at the edge of what's possible with AI.
-</p>
-</div>
-
-<div class="about-highlights">
-<div class="highlight-item">
-<div class="highlight-icon">
-<i class="fas fa-briefcase"></i>
-</div>
-<div class="highlight-content">
-<h4>2+ Years Experience</h4>
-<p>Hands-on production delivery</p>
-</div>
-</div>
-<div class="highlight-item">
-<div class="highlight-icon">
-<i class="fas fa-clock"></i>
-</div>
-<div class="highlight-content">
-<h4>100+ Hours Saved Monthly</h4>
-<p>(via automation)</p>
-</div>
-</div>
-<div class="highlight-item">
-<div class="highlight-icon">
-<i class="fas fa-bolt"></i>
-</div>
-<div class="highlight-content">
-<h4>80% Faster Information Retrieval</h4>
-<p>(Tanishq Portal)</p>
-</div>
-</div>
-<div class="highlight-item">
-<div class="highlight-icon">
-<i class="fas fa-wave-square"></i>
-</div>
-<div class="highlight-content">
-<h4>95% ASR Accuracy</h4>
-<p>(STT/TTS system)</p>
-</div>
-</div>
-</div>
-
-<div class="about-contact">
-<div class="contact-item">
-<i class="fas fa-envelope"></i>
-<div>
-<h4>Email</h4>
-<p>rgowtham2502@gmail.com</p>
-</div>
-</div>
-<div class="contact-item">
-<i class="fas fa-map-marker-alt"></i>
-<div>
-<h4>Location</h4>
-<p>Bangalore, India</p>
-</div>
-</div>
-</div>
-
-<div class="about-cta">
-<a href="#contact" class="btn primary-btn">
-<span>Get In Touch</span>
-<i class="fas fa-arrow-right"></i>
-</a>
-<a href="https://drive.google.com/file/d/1gdAw0cD9RsC3N_Etvwse57VY9Fbh1-il/view?usp=sharing" target="_blank" class="btn secondary-btn">
-<span>Download Resume</span>
-<i class="fas fa-file-download"></i>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- about section ends -->
-
-<!-- education section starts -->
-<section class="education" id="education">
-<div class="container">
-<h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span>Education</span></h2>
-<div class="education-cards">
-<div class="edu-card">
-<div class="edu-image">
-<img src="./assets/images/educat/college.jpg" alt="Kongu Engineering College">
-</div>
-<div class="edu-content">
-<h3>B.Sc. Information Systems</h3>
-<p class="institution">Kongu Engineering College, Erode</p>
-<p class="year">September 2020 - May 2023</p>
-<p class="year">CGPA: 8.93</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- education section ends -->
-
-
-<!-- PROJECT SECTION STARTS -->
-<section class="projects" id="projects">
-<div class="container">
-<h2 class="section-title"><span>Projects</span></h2>
-<p class="projects-subtitle">Things I've built &mdash; from AI systems to data platforms</p>
-<div class="project-filters">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="genai">GenAI / ML</button>
-<button class="filter-btn" data-filter="automation">Automation</button>
-<button class="filter-btn" data-filter="data">Data &amp; BI</button>
-<button class="filter-btn" data-filter="blockchain">Blockchain</button>
-</div>
-<div class="project-grid">
-<!-- Project 1 -->
-<div class="project-card" data-category="automation genai">
-<div class="project-image">
-<img src="./assets/images/projects/job-seach.jpg" alt="JobPulse">
-<div class="project-overlay">
-<a href="https://github.com/rgowtham25/jobpulse" class="project-link" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-<div class="project-info">
-<p class="project-category">Automation &middot; GenAI</p>
-<h3>JobPulse</h3>
-<p class="project-tagline">Automated Job Alert System via WhatsApp</p>
-<p class="project-description">A fully automated job hunting system that scrapes live job postings from multiple sources, filters relevant results intelligently, and delivers them straight to your WhatsApp &mdash; either on a set hourly schedule or on-demand via a web dashboard. Built with a clean modular architecture separating scrapers, notifier, scheduler, and UI into independent components.</p>
-<ul class="project-highlights">
-<li>Multi-source scraping from Google (via SerpAPI) and DuckDuckGo with smart deduplication</li>
-<li>Twilio WhatsApp API integration for real-time job delivery</li>
-<li>APScheduler for fully automated hourly runs with zero manual intervention</li>
-<li>Interactive Dash dashboard - search by role, location, and receive results instantly on WhatsApp</li>
-<li>Configurable filters for time range, job role, location, and result pages</li>
-</ul>
-<div class="project-tech-tags">
-<span>Python</span>
-<span>Dash</span>
-<span>SerpAPI</span>
-<span>Twilio WhatsApp API</span>
-<span>BeautifulSoup</span>
-<span>APScheduler</span>
-<span>DuckDuckGo Scraper</span>
-</div>
-<a href="https://github.com/rgowtham25/jobpulse" class="project-github" target="_blank" rel="noopener noreferrer">GitHub Repository &rarr;</a>
-</div>
-</div>
-
-<!-- Project 2 -->
-<div class="project-card" data-category="genai">
-<div class="project-image">
-<img src="./assets/images/projects/women.png" alt="Fashion Design Chatbot">
-<div class="project-overlay">
-<a href="https://github.com/rgowtham25/fashion_chatbot" class="project-link" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-<div class="project-info">
-<p class="project-category">GenAI &middot; ML &middot; Computer Vision</p>
-<h3>Fashion Design Chatbot</h3>
-<p class="project-tagline">Modify clothing designs through natural language</p>
-<p class="project-description">An AI-powered web application that lets users redesign clothing items through plain English commands. Upload a clothing image, then instruct the system to change the neckline style, adjust sleeve type, swap colors, or alter the length &mdash; and the AI applies those changes directly to the image. Combines NLP-based intent understanding with deep learning image generation for a seamless design experience.</p>
-<ul class="project-highlights">
-<li>spaCy NLP pipeline extracts design intent and fashion-specific entities from user commands</li>
-<li>ResNet50 automatically detects clothing features (neckline, sleeves, length, dominant color) on upload</li>
-<li>Stable Diffusion inpainting applies high-quality, texture-preserving image modifications</li>
-<li>Supports 8 neckline types, 9 sleeve types, 8 length options, and 20+ colors</li>
-<li>Full undo/redo history to navigate through design iterations</li>
-<li>Flask web app with real-time chat interface and split-screen image preview</li>
-</ul>
-<div class="project-tech-tags">
-<span>Python</span>
-<span>Flask</span>
-<span>Stable Diffusion</span>
-<span>ResNet50</span>
-<span>PyTorch</span>
-<span>spaCy</span>
-<span>OpenCV</span>
-<span>scikit-learn</span>
-<span>Bootstrap</span>
-</div>
-<a href="https://github.com/rgowtham25/fashion_chatbot" class="project-github" target="_blank" rel="noopener noreferrer">GitHub Repository &rarr;</a>
-</div>
-</div>
-
-<!-- Project 3 -->
-<div class="project-card" data-category="data">
-<div class="project-image">
-<img src="./assets/images/projects/nammayatri.jpg" alt="Namma Yatri Analytics Dashboard">
-<div class="project-overlay">
-<a href="https://github.com/rgowtham25/Namma-Yatri-Analytics-Dashboard-using-Power-BIsss" class="project-link" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-<div class="project-info">
-<p class="project-category">Data &amp; BI</p>
-<h3>Namma Yatri Analytics Dashboard</h3>
-<p class="project-tagline">Transportation analytics dashboard for Bangalore's ride network</p>
-<p class="project-description">An end-to-end business intelligence dashboard built on Namma Yatri's open ride data, surfacing operational insights across trips, drivers, and revenue. Designed to help stakeholders monitor performance trends, identify high-demand zones, and make data-driven decisions on fleet and pricing strategy.</p>
-<ul class="project-highlights">
-<li>KPI cards for total trips, total revenue, active drivers, and average trip duration</li>
-<li>Ride volume trends over time with day/week/month breakdowns</li>
-<li>Geographic heatmaps showing high-demand pickup and drop zones across Bangalore</li>
-<li>Driver performance analysis - top earners, trip frequency, and efficiency metrics</li>
-<li>Clean, interactive layout with slicers for date range and zone filtering</li>
-</ul>
-<div class="project-tech-tags">
-<span>Power BI</span>
-<span>DAX</span>
-<span>Data Modeling</span>
-<span>SQL</span>
-</div>
-</div>
-</div>
-
-<!-- Project 4 -->
-<div class="project-card" data-category="blockchain">
-<div class="project-image">
-<img src="./assets/images/projects/blockchain.png" alt="Anti-Counterfeit Product Verification System">
-<div class="project-overlay">
-<a href="https://github.com/rgowtham25/Design-and-Implementation-of-Anti-Counterfeit-System-using-Blockchain" class="project-link" target="_blank" rel="noopener noreferrer">
-<i class="fas fa-external-link-alt"></i>
-</a>
-</div>
-</div>
-<div class="project-info">
-<p class="project-category">Blockchain</p>
-<h3>Anti-Counterfeit Product Verification System</h3>
-<p class="project-tagline">Blockchain-based product authentication to eliminate counterfeits</p>
-<p class="project-description">A decentralized product verification system that uses blockchain to create an immutable trail of authenticity from manufacturer to end consumer. Each product is assigned a unique on-chain identity that can be scanned and verified at any point in the supply chain, making counterfeiting detectable and traceable.</p>
-<ul class="project-highlights">
-<li>Smart contracts record product registration, ownership transfers, and verification events on-chain</li>
-<li>QR code-based verification flow - scan to instantly confirm product authenticity</li>
-<li>Immutable audit trail covering the full product journey from production to purchase</li>
-<li>Eliminates reliance on centralized databases that can be tampered with</li>
-</ul>
-<div class="project-tech-tags">
-<span>Blockchain</span>
-<span>Smart Contracts</span>
-<span>Solidity</span>
-<span>Web3.js</span>
-<span>Python</span>
-</div>
-</div>
-</div>
-</div>
-<div class="view-all">
-<a href="https://github.com/rgowtham25" class="btn primary-btn" target="_blank">
-<span>View all projects on GitHub &rarr;</span>
-</a>
-</div>
-</div>
-</section>
-<!-- work project section ends -->
-
-
-<!-- experience section starts -->
-<section class="experience" id="experience">
-<div class="container">
-<h2 class="section-title"><i class="fas fa-briefcase"></i> <span>Experience</span></h2>
-<div class="experience-container">
-  <div class="experience-timeline">
-    <div class="timeline-line"></div>
-    
-    <div class="experience-item">
-      <div class="experience-dot"></div>
-      <div class="experience-content">
-        <div class="experience-header">
-          <div class="job-title">
-            <h3>Python Developer (GenAI / AI Engineer)</h3>
-            <div class="company">Valuestream Business Solutions Pvt Ltd</div>
-            <div class="job-location"><i class="fas fa-location-dot"></i> Bangalore</div>
+<!-- =============================================
+     HERO
+============================================= -->
+<section id="hero">
+  <div class="hero-top">
+      <div class="hero-main">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <span>✦ GenAI Engineer · Bangalore · 2026</span>
           </div>
-          <div class="job-duration">July 2024 - Present</div>
+          <h1 class="hero-headline reveal">
+            Building AI<br>that ships to<br><em>production.</em>
+          </h1>
         </div>
-        <div class="job-description">
-          <p class="job-summary"><strong>What I do here:</strong> I architect and ship enterprise AI solutions end-to-end - from problem scoping to production deployment.</p>
-          <p class="job-summary"><strong>Key projects & impact:</strong></p>
-          <ul>
-            <li>AI Audit System - Built a full call QA automation platform (Next.js, FastAPI, Python workers, PostgreSQL, Docker, Gemini) covering audio ingestion, transcription, dialogue analysis, scorecard evaluation, sentiment analysis, and structured call summaries.</li>
-            <li>Tanishq Knowledge Portal - Developed a RAG-powered internal knowledge portal with semantic search (React, Node.js, OpenAI), reducing agent information retrieval time by ~80%.</li>
-            <li>Real-time STT/TTS Speech Service - Integrated OpenAI Whisper, Voxtral, and Azure STT API for multilingual transcription at 95% accuracy, improving agent productivity by 30%.</li>
-            <li>Invoice Intelligence Pipeline - Designed an AI-driven document extraction pipeline using OpenAI, Gemini, Mistral Large 3, and Document AI for unstructured invoice processing at scale.</li>
-            <li>Automation & Analytics Platforms - Built KPI dashboards, report automation systems, and agent-assignment optimization models saving 100+ operational hours monthly.</li>
-            <li>LLM Evaluation & Optimization - Evaluated and benchmarked LLaMA, Gemma, Mistral, GPT-4, and Phi-3 using prompt/context engineering, fine-tuning, and Hugging Face inference tools.</li>
-          </ul>
-        </div>
-        <div class="tech-stack">
-          <span>Python</span>
-          <span>Machine Learning</span>
-          <span>Neural Networks</span>
-          <span>LangChain</span>
-          <span>LlamaIndex</span>
-          <span>LLMs</span>
-          <span>RAG</span>
-          <span>Vector DBs</span>
-          <span>OpenAI</span>
-          <span>Gemini</span>
-          <span>Mistral</span>
-          <span>FastAPI</span>
-          <span>Next.js</span>
-          <span>React</span>
-          <span>PostgreSQL</span>
-          <span>Docker</span>
-          <span>Whisper</span>
-          <span>Automatic Speech Recognition</span>
-          <span>Prompt & Context Engineering</span>
-          <span>Model Context Protocol</span>
-          <span>Claude CLI</span>
-          <span>Codex</span>
-          <span>Antigravity IDE</span>
-          <span>GitHub Copilot</span>
-          <span>Lovable.ai</span>
+        <div class="hero-photo-col reveal" style="transition-delay:0.15s">
+          <div class="hero-photo">
+            <img src="assets/images/rg_new.png" alt="Gowtham R"
+              onerror="this.parentNode.style.background='#e0dcd4';this.parentNode.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-weight:900;font-size:32px;color:#0f0f0f;\'>GR</div>'">
+          </div>
         </div>
       </div>
+  </div>
+
+  <div class="hero-divider"></div>
+
+  <div class="hero-sub">
+    <p class="hero-desc reveal" style="transition-delay:0.1s">
+      2+ years of hands-on experience building intelligent systems that
+      <strong>actually ship to production</strong> — RAG pipelines, real-time speech systems,
+      LLM applications, and document intelligence platforms for
+      <strong>enterprise clients across e-commerce, retail, and insurance</strong>.
+    </p>
+    <div class="hero-actions reveal" style="transition-delay:0.2s">
+      <span class="hero-role-pill">GenAI Engineer &amp; Python Developer</span>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-accent">View My Work</a>
+        <a href="https://drive.google.com/file/d/10yPhnwlibgsOQ-Pyc7eA_DQf6hiF9DOY/view?usp=sharing"
+           target="_blank" rel="noopener" class="btn btn-outline">Download Resume</a>
+      </div>
     </div>
-    
-    <div class="experience-item">
-      <div class="experience-dot"></div>
-      <div class="experience-content">
-        <div class="experience-header">
-          <div class="job-title">
-            <h3>Product Engineer (L1) - RPA Team</h3>
-            <div class="company">ClaySys Technologies</div>
-            <div class="job-location"><i class="fas fa-location-dot"></i> Coimbatore</div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat reveal">
+      <div class="stat-num"><em>2</em>+ Yrs</div>
+      <div class="stat-lbl">Production AI delivery experience</div>
+    </div>
+    <div class="hero-stat reveal" style="transition-delay:0.08s">
+      <div class="stat-num"><em>100</em>+ Hrs</div>
+      <div class="stat-lbl">Operational hours saved monthly</div>
+    </div>
+    <div class="hero-stat reveal" style="transition-delay:0.16s">
+      <div class="stat-num"><em>80</em>%</div>
+      <div class="stat-lbl">Faster retrieval — Knowledge Portal</div>
+    </div>
+    <div class="hero-stat reveal" style="transition-delay:0.24s">
+      <div class="stat-num"><em>95</em>%</div>
+      <div class="stat-lbl">ASR accuracy — STT/TTS system</div>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- =============================================
+     ABOUT
+============================================= -->
+<section id="about">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">About Me</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-quote reveal">
+        I build AI that goes beyond <em>demos.</em>
+      </div>
+      <div class="reveal" style="transition-delay:0.1s">
+        <div class="about-body">
+          <p>I'm a GenAI/AI Engineer based in Bangalore, with 2+ years of hands-on experience
+          building intelligent systems that <strong>actually ship to production</strong>.</p>
+          <p>My work spans the full AI stack — from architecting RAG pipelines and fine-tuning
+          open-source LLMs, to building real-time speech systems and document intelligence
+          platforms. I've delivered enterprise-grade AI solutions across e-commerce, retail,
+          and insurance with measurable impact:
+          <strong>100+ operational hours saved monthly</strong>,
+          <strong>80% reduction in information retrieval time</strong>, and
+          <strong>95% transcription accuracy</strong> across multilingual audio.</p>
+          <p>Outside of work, I'm constantly exploring new tools, certifications, and ideas at
+          the edge of what's possible with AI.</p>
+        </div>
+        <table class="about-table">
+          <tr><td>Location</td><td>Bangalore, India</td></tr>
+          <tr><td>Speciality</td><td>GenAI / LLMs / RAG Pipelines / Python</td></tr>
+          <tr><td>Email</td><td><a href="mailto:rgowtham2502@gmail.com">rgowtham2502@gmail.com</a></td></tr>
+          <tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/gowthamr25/" target="_blank" rel="noopener">linkedin.com/in/gowthamr25</a></td></tr>
+          <tr><td>GitHub</td><td><a href="https://github.com/rgowtham25" target="_blank" rel="noopener">github.com/rgowtham25</a></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     EXPERIENCE
+============================================= -->
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Experience</span>
+    </div>
+    <div class="exp-header">
+      <h2 class="section-heading reveal">Where I've worked</h2>
+    </div>
+    <div class="exp-list">
+
+      <!-- Valuestream -->
+      <div class="exp-item reveal">
+        <div>
+          <div class="exp-meta-date">Jul 2024 — Present</div>
+          <div class="exp-meta-company">Valuestream Business Solutions</div>
+          <div class="exp-meta-loc">Bangalore</div>
+          <span class="exp-current">Current</span>
+        </div>
+        <div>
+          <div class="exp-role">Python Developer (GenAI Engineer)</div>
+          <div class="exp-tagline">Architecting and shipping enterprise AI solutions end-to-end</div>
+          <div class="exp-projects">
+            <div class="exp-proj">
+              <div class="exp-proj-title">AI Audit System</div>
+              <div class="exp-proj-desc">Full call QA automation platform (Next.js, FastAPI, PostgreSQL, Docker, Gemini) covering audio ingestion, transcription, dialogue analysis, scorecard evaluation, sentiment analysis, and structured call summaries.</div>
+            </div>
+            <div class="exp-proj">
+              <div class="exp-proj-title">Internal Knowledge Portal</div>
+              <div class="exp-proj-desc">RAG-powered internal semantic search portal built with React, Node.js & OpenAI, enabling agents to query company resources instantly.</div>
+              <div class="exp-proj-impact">~80% reduction in information retrieval time</div>
+            </div>
+            <div class="exp-proj">
+              <div class="exp-proj-title">Real-time STT/TTS Speech Service</div>
+              <div class="exp-proj-desc">Multilingual speech service integrating OpenAI Whisper, Voxtral & Azure STT API across multiple ASR engines.</div>
+              <div class="exp-proj-impact">95% accuracy · 30% productivity improvement</div>
+            </div>
+            <div class="exp-proj">
+              <div class="exp-proj-title">Invoice Intelligence Pipeline</div>
+              <div class="exp-proj-desc">AI-driven document extraction pipeline using OpenAI, Gemini, Mistral Large 3 & Google Document AI for unstructured invoice processing at scale.</div>
+            </div>
           </div>
-          <div class="job-duration">January 2023 - June 2023</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">LangChain</span>
+            <span class="exp-tag">RAG</span><span class="exp-tag">OpenAI</span>
+            <span class="exp-tag">Gemini</span><span class="exp-tag">Mistral</span>
+            <span class="exp-tag">FastAPI</span><span class="exp-tag">Next.js</span>
+            <span class="exp-tag">React</span><span class="exp-tag">PostgreSQL</span>
+            <span class="exp-tag">Docker</span><span class="exp-tag">Whisper</span><span class="exp-tag">GCP</span>
+          </div>
         </div>
-        <div class="job-description">
-          <ul>
-            <li>Contributed to RPA Genie 8.0 - built UI modules and BOT automation workflows.</li>
-            <li>Designed and built a full campus recruitment portal with 10+ specialized modules.</li>
+      </div>
+
+      <!-- ClaySys -->
+      <div class="exp-item reveal">
+        <div>
+          <div class="exp-meta-date">Jan 2023 — Jun 2023</div>
+          <div class="exp-meta-company">ClaySys Technologies</div>
+          <div class="exp-meta-loc">Coimbatore</div>
+        </div>
+        <div>
+          <div class="exp-role">Product Engineer (L1) — RPA Team</div>
+          <div class="exp-tagline">Built UI modules and automation workflows for enterprise RPA products</div>
+          <ul class="exp-bullets">
+            <li>Contributed to RPA Genie 8.0 — built UI modules and BOT automation workflows</li>
+            <li>Designed and built a full campus recruitment portal with 10+ specialized modules</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">RPA Genie</span><span class="exp-tag">ASP.NET</span>
+            <span class="exp-tag">MVC</span><span class="exp-tag">JavaScript</span>
+            <span class="exp-tag">SQL Server</span>
+          </div>
         </div>
-        <div class="tech-stack">
-          <span>RPA Genie</span>
-          <span>UiPath</span>
-          <span>Power Automate</span>
-          <span>ASP.NET</span>
-          <span>MVC</span>
-          <span>JavaScript</span>
-          <span>SQL Server</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PROJECTS
+============================================= -->
+<section id="projects">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Projects</span>
+    </div>
+    <h2 class="section-heading reveal">Things I've built</h2>
+    <p class="section-sub reveal" style="transition-delay:0.08s">Personal projects built outside of work — from AI systems to data platforms.</p>
+
+    <div class="proj-filters reveal" style="transition-delay:0.12s">
+      <button class="f-btn on" data-f="all">All</button>
+      <button class="f-btn" data-f="genai">GenAI / ML</button>
+      <button class="f-btn" data-f="automation">Automation</button>
+      <button class="f-btn" data-f="bi">Data &amp; BI</button>
+      <button class="f-btn" data-f="blockchain">Blockchain</button>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card reveal" data-cat="automation genai">
+        <div class="proj-top">
+          <span class="proj-cat">Automation · GenAI</span>
+          <a href="https://github.com/rgowtham25/jobpulse" target="_blank" rel="noopener" class="proj-gh">GitHub →</a>
+        </div>
+        <div>
+          <div class="proj-name">JobPulse</div>
+          <div class="proj-tagline">Automated job alert system via WhatsApp</div>
+        </div>
+        <p class="proj-desc">A fully automated job hunting system that scrapes live postings from multiple sources, filters intelligently, and delivers them straight to WhatsApp — on a schedule or on-demand via a web dashboard.</p>
+        <ul class="proj-bullets">
+          <li>Multi-source scraping via SerpAPI + DuckDuckGo with smart deduplication</li>
+          <li>Twilio WhatsApp API for real-time job delivery</li>
+          <li>Hourly automation via APScheduler — zero manual intervention</li>
+          <li>Interactive Dash dashboard for on-demand searches</li>
+        </ul>
+        <div class="proj-tech">
+          <span class="tech-tag">Python</span><span class="tech-tag">Dash</span>
+          <span class="tech-tag">SerpAPI</span><span class="tech-tag">Twilio</span>
+          <span class="tech-tag">BeautifulSoup</span><span class="tech-tag">APScheduler</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.08s" data-cat="genai">
+        <div class="proj-top">
+          <span class="proj-cat">GenAI · ML · Computer Vision</span>
+          <a href="https://github.com/rgowtham25/fashion_chatbot" target="_blank" rel="noopener" class="proj-gh">GitHub →</a>
+        </div>
+        <div>
+          <div class="proj-name">Fashion Design Chatbot</div>
+          <div class="proj-tagline">Modify clothing designs through natural language</div>
+        </div>
+        <p class="proj-desc">Upload a clothing image and redesign it through plain English commands — change necklines, sleeves, colors, and length using NLP intent extraction and Stable Diffusion inpainting.</p>
+        <ul class="proj-bullets">
+          <li>spaCy NLP pipeline extracts fashion-specific design intent</li>
+          <li>ResNet50 auto-detects clothing features on upload</li>
+          <li>Stable Diffusion inpainting for texture-preserving modifications</li>
+          <li>Full undo/redo history with real-time chat interface</li>
+        </ul>
+        <div class="proj-tech">
+          <span class="tech-tag">Python</span><span class="tech-tag">Flask</span>
+          <span class="tech-tag">Stable Diffusion</span><span class="tech-tag">ResNet50</span>
+          <span class="tech-tag">PyTorch</span><span class="tech-tag">spaCy</span>
+          <span class="tech-tag">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.04s" data-cat="bi">
+        <div class="proj-top">
+          <span class="proj-cat">Data &amp; BI</span>
+        </div>
+        <div>
+          <div class="proj-name">Namma Yatri Analytics</div>
+          <div class="proj-tagline">Transportation analytics dashboard for Bangalore's ride network</div>
+        </div>
+        <p class="proj-desc">End-to-end BI dashboard on Namma Yatri's open ride data, surfacing operational insights across trips, drivers, and revenue for data-driven fleet decisions.</p>
+        <ul class="proj-bullets">
+          <li>KPI cards: total trips, revenue, active drivers, avg trip duration</li>
+          <li>Geographic heatmaps showing high-demand zones across Bangalore</li>
+          <li>Driver performance analysis — top earners, trip frequency, efficiency</li>
+          <li>Interactive slicers for date range and zone filtering</li>
+        </ul>
+        <div class="proj-tech">
+          <span class="tech-tag">Power BI</span><span class="tech-tag">DAX</span>
+          <span class="tech-tag">Data Modeling</span><span class="tech-tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="proj-card reveal" style="transition-delay:0.12s" data-cat="blockchain">
+        <div class="proj-top">
+          <span class="proj-cat">Blockchain</span>
+        </div>
+        <div>
+          <div class="proj-name">Anti-Counterfeit System</div>
+          <div class="proj-tagline">Blockchain-based product authentication</div>
+        </div>
+        <p class="proj-desc">Decentralized product verification using blockchain to create an immutable authenticity trail from manufacturer to end consumer — making counterfeiting detectable at every stage.</p>
+        <ul class="proj-bullets">
+          <li>Smart contracts record product registration and ownership on-chain</li>
+          <li>QR code-based scan to confirm product authenticity instantly</li>
+          <li>Immutable audit trail covering the full product journey</li>
+        </ul>
+        <div class="proj-tech">
+          <span class="tech-tag">Solidity</span><span class="tech-tag">Web3.js</span>
+          <span class="tech-tag">Smart Contracts</span><span class="tech-tag">Python</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="proj-footer">
+      <a href="https://github.com/rgowtham25" target="_blank" rel="noopener" class="proj-all-link">
+        View all projects on GitHub →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SKILLS
+============================================= -->
+<section id="skills">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Skills</span>
+    </div>
+    <h2 class="section-heading reveal">What I work with</h2>
+    <div class="skills-grid">
+      <div class="reveal">
+        <div class="skill-group-lbl">Generative AI</div>
+        <div class="skill-pills">
+          <span class="s-pill hi">LLMs</span>
+          <span class="s-pill hi">RAG Pipelines</span>
+          <span class="s-pill">LangChain</span>
+          <span class="s-pill">LlamaIndex</span>
+          <span class="s-pill">Prompt Engineering</span>
+          <span class="s-pill">Context Engineering</span>
+          <span class="s-pill">ASR / Speech AI</span>
+          <span class="s-pill hi">MCP</span>
+          <span class="s-pill">Fine-tuning</span>
+          <span class="s-pill">Hugging Face</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.06s">
+        <div class="skill-group-lbl">Models</div>
+        <div class="skill-pills">
+          <span class="s-pill">GPT-4</span><span class="s-pill">Gemini</span>
+          <span class="s-pill">Mistral</span><span class="s-pill">LLaMA</span>
+          <span class="s-pill">Gemma</span><span class="s-pill">Phi-3</span>
+          <span class="s-pill">Whisper</span><span class="s-pill">Voxtral</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.12s">
+        <div class="skill-group-lbl">Vector Databases</div>
+        <div class="skill-pills">
+          <span class="s-pill">ChromaDB</span>
+          <span class="s-pill">Qdrant</span>
+          <span class="s-pill">Faiss</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.06s">
+        <div class="skill-group-lbl">Programming & Tools</div>
+        <div class="skill-pills">
+          <span class="s-pill hi">Python</span>
+          <span class="s-pill">SQL</span><span class="s-pill">FastAPI</span>
+          <span class="s-pill">Docker</span><span class="s-pill">Git</span>
+          <span class="s-pill">Linux</span><span class="s-pill">Pandas</span>
+          <span class="s-pill">NumPy</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.12s">
+        <div class="skill-group-lbl">Cloud</div>
+        <div class="skill-pills">
+          <span class="s-pill">GCP</span>
+          <span class="s-pill">Google AI Studio</span>
+          <span class="s-pill">Vertex AI</span>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.18s">
+        <div class="skill-group-lbl">AI Dev Tools</div>
+        <div class="skill-pills">
+          <span class="s-pill">Claude CLI</span>
+          <span class="s-pill">Codex CLI</span>
+          <span class="s-pill">Gemini CLI</span>
+          <span class="s-pill">GitHub Copilot</span>
+          <span class="s-pill">Lovable.ai</span>
+          <span class="s-pill">Bolt.new</span>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </section>
-<!-- experience section ends -->
 
-<!-- Skills Section Starts -->
-<section class="skills" id="skills">
-<div class="container">
-<h2 class="section-title">Technical <span>Skills</span></h2>
-<div class="skills-container">
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-magic"></i>
-</div>
-<h3>Generative AI</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fas fa-brain"></i>
-</div>
-<div class="skill-details">
-<h4>Core Capabilities</h4>
-<div class="skill-tags">
-<span>LLMs</span>
-<span>RAG Pipelines</span>
-<span>LangChain</span>
-<span>LlamaIndex</span>
-<span>Prompt &amp; Context Engineering</span>
-<span>Vector Databases (ChromaDB, Qdrant, Faiss)</span>
-<span>ASR / Speech AI</span>
-<span>MCP (Model Context Protocol)</span>
-<span>Fine-tuning</span>
-<span>Hugging Face</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-microchip"></i>
-</div>
-<h3>Models worked with</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fas fa-robot"></i>
-</div>
-<div class="skill-details">
-<h4>Model Families</h4>
-<div class="skill-tags">
-<span>OpenAI GPT-4</span>
-<span>Gemini</span>
-<span>Mistral</span>
-<span>LLaMA</span>
-<span>Gemma</span>
-<span>Phi-3</span>
-<span>Whisper</span>
-<span>Voxtral</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-brain"></i>
-</div>
-<h3>ML / DL / NLP</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fas fa-project-diagram"></i>
-</div>
-<div class="skill-details">
-<h4>Core ML Capabilities</h4>
-<div class="skill-tags">
-<span>Supervised &amp; Unsupervised Learning</span>
-<span>Neural Networks</span>
-<span>TensorFlow</span>
-<span>Scikit-Learn</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-code"></i>
-</div>
-<h3>Programming &amp; Tools</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fab fa-python"></i>
-</div>
-<div class="skill-details">
-<h4>Core Stack</h4>
-<div class="skill-tags">
-<span>Python</span>
-<span>SQL</span>
-<span>FastAPI</span>
-<span>Docker</span>
-<span>Git</span>
-<span>Linux</span>
-<span>Pandas</span>
-<span>NumPy</span>
-<span>Plotly</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-cloud"></i>
-</div>
-<h3>Cloud</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fas fa-server"></i>
-</div>
-<div class="skill-details">
-<h4>Platforms</h4>
-<div class="skill-tags">
-<span>GCP</span>
-<span>Google AI Studio</span>
-<span>Vertex AI</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-laptop-code"></i>
-</div>
-<h3>AI Dev Tools</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fas fa-terminal"></i>
-</div>
-<div class="skill-details">
-<h4>Productivity Tooling</h4>
-<div class="skill-tags">
-<span>Claude CLI</span>
-<span>Codex CLI</span>
-<span>Gemini CLI</span>
-<span>GitHub Copilot</span>
-<span>Lovable.ai</span>
-<span>Bolt.new</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="skill-category">
-<div class="category-header">
-<div class="category-icon">
-<i class="fas fa-code-branch"></i>
-</div>
-<h3>Frontend (supporting)</h3>
-</div>
-<div class="skills-grid">
-<div class="skill-item">
-<div class="skill-icon">
-<i class="fab fa-react"></i>
-</div>
-<div class="skill-details">
-<h4>App Layer</h4>
-<div class="skill-tags">
-<span>React</span>
-<span>Next.js</span>
-<span>Node.js</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
+<!-- =============================================
+     CERTIFICATIONS
+============================================= -->
+<section id="certifications">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Certifications</span>
+    </div>
+    <h2 class="section-heading reveal">Credentials</h2>
+    <div class="certs-grid">
+      <div class="cert-card feat reveal">
+        <div class="cert-feat-badge">Featured</div>
+        <div class="cert-initial">A</div>
+        <div class="cert-name">Model Context Protocol, Agent Skills and Subagents</div>
+        <div class="cert-issuer">Anthropic Academy</div>
+        <div class="cert-date">March 2026</div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.06s">
+        <div class="cert-initial">DL</div>
+        <div class="cert-name">LangChain for LLM Application Development</div>
+        <div class="cert-issuer">DeepLearning.AI</div>
+        <div class="cert-date">June 2025</div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.12s">
+        <div class="cert-initial">DL</div>
+        <div class="cert-name">AI Agents in LangGraph</div>
+        <div class="cert-issuer">DeepLearning.AI</div>
+        <div class="cert-date">June 2025</div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.06s">
+        <div class="cert-initial">C</div>
+        <div class="cert-name">Data Analytics Essentials</div>
+        <div class="cert-issuer">Cisco Networking Academy</div>
+        <div class="cert-date">November 2023</div>
+      </div>
+      <div class="cert-card reveal" style="transition-delay:0.12s">
+        <div class="cert-initial">O</div>
+        <div class="cert-name">Oracle Cloud Infrastructure Foundations Associate</div>
+        <div class="cert-issuer">Oracle</div>
+        <div class="cert-date">September 2023</div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- skills section ends -->
 
-<!-- certifications section starts -->
-<section class="certifications" id="certifications">
-<div class="container">
-<h2 class="section-title"><i class="fas fa-certificate"></i> <span>Certifications</span></h2>
-<div class="cert-grid">
-<article class="cert-card featured-cert">
-<div class="cert-header">
-<div class="issuer-logo anthropic-logo" aria-hidden="true">A</div>
-<div class="issuer-meta">
-<h3>Model Context Protocol, Agent Skills and Subagents</h3>
-<p class="issuer-name">Anthropic Academy</p>
-</div>
-</div>
-<span class="featured-badge">Featured</span>
-<p class="cert-date">March 2026</p>
-</article>
-
-<article class="cert-card">
-<div class="cert-header">
-<div class="issuer-logo dlai-logo" aria-hidden="true">DL</div>
-<div class="issuer-meta">
-<h3>LangChain for LLM Application Development</h3>
-<p class="issuer-name">DeepLearning.AI</p>
-</div>
-</div>
-<p class="cert-date">June 2025</p>
-</article>
-
-<article class="cert-card">
-<div class="cert-header">
-<div class="issuer-logo dlai-logo" aria-hidden="true">DL</div>
-<div class="issuer-meta">
-<h3>AI Agents in LangGraph</h3>
-<p class="issuer-name">DeepLearning.AI</p>
-</div>
-</div>
-<p class="cert-date">June 2025</p>
-</article>
-
-<article class="cert-card">
-<div class="cert-header">
-<div class="issuer-logo cisco-logo" aria-hidden="true">C</div>
-<div class="issuer-meta">
-<h3>Data Analytics Essentials</h3>
-<p class="issuer-name">Cisco Networking Academy</p>
-</div>
-</div>
-<p class="cert-date">November 2023</p>
-</article>
-
-<article class="cert-card">
-<div class="cert-header">
-<div class="issuer-logo oracle-logo" aria-hidden="true">O</div>
-<div class="issuer-meta">
-<h3>Oracle Cloud Infrastructure Foundations Associate</h3>
-<p class="issuer-name">Oracle</p>
-</div>
-</div>
-<p class="cert-date">September 2023</p>
-</article>
-</div>
-</div>
+<!-- =============================================
+     AWARDS
+============================================= -->
+<section id="awards">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Awards</span>
+    </div>
+    <h2 class="section-heading reveal">Recognition</h2>
+    <div class="awards-list">
+      <div class="award-row reveal">
+        <div class="award-icon-wrap">🏆</div>
+        <div>
+          <div class="award-title">Best Placement Coordinator</div>
+          <div class="award-sub">Dept. of CT-UG, Kongu Engineering College · 2020–2023</div>
+        </div>
+      </div>
+      <div class="award-row reveal" style="transition-delay:0.06s">
+        <div class="award-icon-wrap">🥈</div>
+        <div>
+          <div class="award-title">2nd Place — Live Coding Hackathon</div>
+          <div class="award-sub">MITRA, Madras Institute of Technology</div>
+        </div>
+      </div>
+      <div class="award-row reveal" style="transition-delay:0.12s">
+        <div class="award-icon-wrap">🏅</div>
+        <div>
+          <div class="award-title">Paper Presentation Awards</div>
+          <div class="award-sub">Won at 5 technical symposiums — intra &amp; inter-college</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- certifications section ends -->
 
-<!-- awards section starts -->
-<section class="awards" id="awards">
-<div class="container">
-<h2 class="section-title"><i class="fas fa-trophy"></i> <span>Awards & Achievements</span></h2>
-<div class="awards-grid">
-<article class="award-card">
-<h3>🏆 Best Placement Coordinator</h3>
-<p>Dept. of CT-UG, Kongu Engineering College (2020-2023)</p>
-</article>
-<article class="award-card">
-<h3>🥈 2nd Place, Live Coding Hackathon</h3>
-<p>MITRA, Madras Institute of Technology</p>
-</article>
-<article class="award-card">
-<h3>🏅 Paper Presentation Awards</h3>
-<p>Won at 5 technical symposiums (intra & inter-college)</p>
-</article>
-</div>
-</div>
+<!-- =============================================
+     EDUCATION
+============================================= -->
+<section id="education">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Education</span>
+    </div>
+    <h2 class="section-heading reveal">Academic background</h2>
+    <div class="edu-card reveal" style="transition-delay:0.08s">
+      <div class="edu-logo-wrap">
+        <img src="assets/images/educat/college.jpg" alt="Kongu Engineering College"
+          onerror="this.parentNode.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-weight:900;font-size:14px;color:#0f0f0f;\'>KEC</div>'">
+      </div>
+      <div>
+        <div class="edu-degree">B.Sc. Information Systems</div>
+        <div class="edu-school">Kongu Engineering College, Erode, Tamil Nadu</div>
+        <div class="edu-meta">
+          <span>Sep 2020 — May 2023</span>
+          <span>CGPA: <strong>8.93</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- awards section ends -->
 
-<!-- contact section starts -->
-<section class="contact" id="contact">
-<div class="container">
-<h2 class="section-title"><i class="fas fa-envelope"></i> <span>Contact</span> Me</h2>
-<div class="contact-container">
-<div class="contact-info">
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fas fa-envelope"></i>
-</div>
-<div class="contact-details">
-<h3>Email</h3>
-<p><a href="mailto:rgowtham2502@gmail.com">rgowtham2502@gmail.com</a></p>
-</div>
-</div>
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fas fa-map-marker-alt"></i>
-</div>
-<div class="contact-details">
-<h3>Location</h3>
-<p>Bangalore, India</p>
-</div>
-</div>
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fab fa-linkedin"></i>
-</div>
-<div class="contact-details">
-<h3>LinkedIn</h3>
-<p><a href="https://www.linkedin.com/in/gowthamr25/" target="_blank" rel="noopener noreferrer">linkedin.com/in/gowthamr25</a></p>
-</div>
-</div>
-<div class="contact-item">
-<div class="contact-icon">
-<i class="fab fa-github"></i>
-</div>
-<div class="contact-details">
-<h3>GitHub</h3>
-<p><a href="https://github.com/rgowtham25" target="_blank" rel="noopener noreferrer">github.com/rgowtham25</a></p>
-</div>
-</div>
-<div class="social-links">
-<a href="https://www.linkedin.com/in/gowthamr25/" class="social-link" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-<a href="https://github.com/rgowtham25" class="social-link" target="_blank">
-<i class="fab fa-github"></i>
-</a>
-<a href="mailto:rgowtham2502@gmail.com" class="social-link" target="_blank">
-<i class="fas fa-envelope"></i>
-</a>
-</div>
-</div>
-<div class="contact-form">
-<form id="contact-form">
-<div class="form-group">
-<input type="text" id="name" name="name" placeholder="Your Name" required>
-</div>
-<div class="form-group">
-<input type="email" id="email" name="email" placeholder="Your Email" required>
-</div>
-<div class="form-group">
-<input type="text" id="subject" name="subject" placeholder="Subject" required>
-</div>
-<div class="form-group">
-<textarea id="message" name="message" placeholder="Your Message" required></textarea>
-</div>
-<button type="submit" class="btn primary-btn">
-<span>Send Message</span>
-<i class="fas fa-paper-plane"></i>
-</button>
-</form>
-</div>
-</div>
-</div>
+<!-- =============================================
+     CONTACT
+============================================= -->
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Contact</span>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h2 class="contact-headline">Let's build something<br><em>great together.</em></h2>
+        <p class="contact-desc">Open to full-time roles, freelance projects, and interesting conversations about AI. Drop me a message and I'll get back to you.</p>
+        <div class="contact-info">
+          <div class="contact-row">
+            <span class="contact-lbl">Email</span>
+            <a href="mailto:rgowtham2502@gmail.com" class="contact-val">rgowtham2502@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-lbl">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/gowthamr25/" target="_blank" rel="noopener" class="contact-val">linkedin.com/in/gowthamr25</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-lbl">GitHub</span>
+            <a href="https://github.com/rgowtham25" target="_blank" rel="noopener" class="contact-val">github.com/rgowtham25</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-lbl">Location</span>
+            <span class="contact-val" style="cursor:default;">Bangalore, India</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" style="transition-delay:0.1s" onsubmit="return false;">
+        <div class="form-row">
+          <label class="form-lbl">Your name</label>
+          <input type="text" class="form-input" placeholder="John Doe">
+        </div>
+        <div class="form-row">
+          <label class="form-lbl">Email address</label>
+          <input type="email" class="form-input" placeholder="john@example.com">
+        </div>
+        <div class="form-row">
+          <label class="form-lbl">Message</label>
+          <textarea class="form-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark" style="align-self:flex-start;">Send Message →</button>
+      </form>
+    </div>
+  </div>
 </section>
-<!-- contact section ends -->
 
-<!-- footer section starts -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-logo">
-<a href="/" class="logo">
-<i class="fas fa-cog fa-spin"></i> <span>RG</span>
-</a>
-<p>AI/ML Engineer & Python Developer</p>
-<div class="social-links">
-<a href="https://www.linkedin.com/in/gowthamr25/" class="social-link" target="_blank">
-<i class="fab fa-linkedin"></i>
-</a>
-<a href="https://github.com/rgowtham25" class="social-link" target="_blank">
-<i class="fab fa-github"></i>
-</a>
-<a href="mailto:rgowtham2502@gmail.com" class="social-link" target="_blank">
-<i class="fas fa-envelope"></i>
-</a>
-</div>
-</div>
-
-<div class="footer-links">
-<h3>Quick Links</h3>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#awards">Awards</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
-
-<div class="footer-contact">
-<h3>Contact Info</h3>
-<ul>
-<li>
-<i class="fas fa-envelope"></i>
-<span><a href="mailto:rgowtham2502@gmail.com">rgowtham2502@gmail.com</a></span>
-</li>
-<li>
-<i class="fab fa-linkedin"></i>
-<span><a href="https://www.linkedin.com/in/gowthamr25/" target="_blank" rel="noopener noreferrer">linkedin.com/in/gowthamr25</a></span>
-</li>
-<li>
-<i class="fab fa-github"></i>
-<span><a href="https://github.com/rgowtham25" target="_blank" rel="noopener noreferrer">github.com/rgowtham25</a></span>
-</li>
-</ul>
-</div>
-</div>
-
-<div class="footer-bottom">
-<p>&copy; <span id="current-year"></span> Gowtham R. All Rights Reserved.</p>
-<p>Designed with <i class="fas fa-heart"></i> by Gowtham R</p>
-</div>
-</div>
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">GR<span>.</span></span>
+    <span class="footer-copy">©2025 Gowtham R. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/gowthamr25/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/rgowtham25" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:rgowtham2502@gmail.com">Email</a>
+    </div>
+  </div>
 </footer>
-<!-- footer section ends -->
 
-<!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="scroll-top" id="scroll-top">
-<i class="fas fa-arrow-up"></i>
-</a>
-<!-- scroll back to top -->
+<!-- =============================================
+     JAVASCRIPT
+============================================= -->
+<script>
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  // Mobile hamburger
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => navbar.classList.remove('open'));
+  });
 
-<!-- typed.js cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const onScroll = () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
 
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- scroll reveal anim -->
-<script src="https://unpkg.com/scrollreveal"></script>
-
-<script
-type="text/javascript"
-src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-></script>
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="./assets/js/script.js"></script>
-
+  // Project filter
+  const fBtns = document.querySelectorAll('.f-btn');
+  const projCards = document.querySelectorAll('.proj-card');
+  fBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      fBtns.forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.f;
+      projCards.forEach(card => {
+        card.classList.toggle('hidden', f !== 'all' && !card.dataset.cat.includes(f));
+      });
+    });
+  });
+</script>
 </body>
 </html>
